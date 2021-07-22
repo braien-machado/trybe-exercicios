@@ -5,17 +5,44 @@
     <title>HTML</title>
     <style>
       
+      body {
+        font-size: 16px;
+      }
+
       h1 {
         font-size: 65px;
         color: orange;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      
+      p {
+        font-weight: 600;
+        font-size: 3em;
+        text-decoration:underline;
+        text-align:center;
       }
 
       ul {
-        color:blue
+        color:white;
+        font-style:oblique;
+        line-height: 30px;
       }
 
       .p-ul {
         background-color: green;
+      }
+
+      #blue {
+        background-color: blue;
+      }
+
+      #red {
+        background-color: red;
+      }
+
+      #black {
+        background-color: black;
       }
 
     </style>
@@ -24,9 +51,9 @@
     <h1>Exercícios 3.2</h1>
     <p class="p-ul">Qual é a sua cor favorita?</p>
     <ul class="p-ul">
-      <li>Azul</li>
-      <li>Vermelho</li>
-      <li>Preto</li>
+      <li id="blue">Azul</li>
+      <li id="red">Vermelho</li>
+      <li id="black">Preto</li>
     </ul>
   </body>
 </html>
