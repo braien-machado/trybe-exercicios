@@ -15,7 +15,7 @@ ol li:nth-of-type(odd){
 }
 
 .header em{
-  font-size: 40px; /*<-----ver gabarito*/
+  font-size: 40px;
   border: 1px solid black;
 }
 
@@ -27,34 +27,34 @@ li em{
   font-weight: bold;
 }
 
-.languages li:nth-child(-n+3){
+#languages li:nth-child(-n+3){
   color: blue;
 }
 
-.languages .java{
+.java{
   background-color: pink;
 }
 
-.aliados a:hover{
+#aliados li a:hover{
   font-weight: bold;
 }
 
-.aliados .devmozilla:hover{
+#aliados a[href*="mozilla"]:hover{
   color:black
 }
 
-.aliados .w3schools:hover{
+#aliados a[href*="w3"]:hover{
   color:green
 }
 
-.aliados .stackoverflow:hover{
+#aliados a[href*="stackover"]:hover{
   color:orange
 }
 
-.aliados .devdocs:hover{
+#aliados a[href*="devdocs"]:hover{
   color:yellow
 }
 
-.aliados .trybe:hover{
+#aliados a[href*="trybe"]:hover{
   color:green
 }
