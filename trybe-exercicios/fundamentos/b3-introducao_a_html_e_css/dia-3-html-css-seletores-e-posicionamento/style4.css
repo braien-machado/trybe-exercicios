@@ -44,6 +44,6 @@ div:nth-of-type(5) h3{
   text-align:center;
 }
 
-div:nth-child(odd){
+div:nth-child(odd) h3{
   font-style: italic;
 }
