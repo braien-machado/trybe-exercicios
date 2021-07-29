@@ -1,21 +1,21 @@
-let a = 10;
-let b = 5;
-let c = 12;
+let numero1 = 1;
+let numero2 = 2;
+let numero3 = 3;
 
-if ( a > b ) {
-  if ( a > c ) {
-    console.log('O maior número é ' + a );
+if ( numero1 > numero2 ) {
+  if ( numero1 > numero3 ) {
+    console.log('O maior número é ' + numero1 );
   }
   else {
-    console.log('O maior número é ' + c );
+    console.log('O maior número é ' + numero3 );
   }
 }
-else if ( b > c ) {
-  console.log('O maior número é ' + b );
+else if ( numero2 > numero3 ) {
+  console.log('O maior número é ' + numero2 );
 }
-else if ( c > a) {
-  console.log('O maior número é ' + c );
+else if ( numero3 > numero1) {
+  console.log('O maior número é ' + numero3 );
 }
 else {
-  console.log('Os números são iguais. a = b = c = ' + a );
+  console.log('Os números são iguais');
 }

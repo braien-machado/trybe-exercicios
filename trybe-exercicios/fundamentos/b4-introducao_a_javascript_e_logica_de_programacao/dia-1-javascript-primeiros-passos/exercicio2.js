@@ -1,12 +1,12 @@
-let a = 20;
-let b = 500;
+let numero1 = 500;
+let numero2 = 500;
 
-if ( a > b) {
-  console.log('O maior número é ' + a );
+if ( numero1 > numero2) {
+  console.log('O maior número é ' + numero1 );
 }
-else if ( a < b ) {
-  console.log('O maior número é ' + b );
+else if ( numero1 < numero2 ) {
+  console.log('O maior número é ' + numero2 );
 }
 else {
-  console.log('Os números são iguais. a = b = ' + a );
+  console.log('Os números são iguais');
 }

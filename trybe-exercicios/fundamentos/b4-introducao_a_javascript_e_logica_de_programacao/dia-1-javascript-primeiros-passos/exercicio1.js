@@ -1,8 +1,8 @@
-let a = 10;
-let b = 2;
+let numero1 = 5;
+let numero2 = 2;
 
-console.log( 'A soma de ' + a + ' e ' + b + ' é: ' + (a + b) );
-console.log( 'A subtração de ' + a + ' por ' + b + ' é: ' + (a - b) );
-console.log( 'A multiplicação de ' + a + ' por ' + b + ' é: ' + (a * b) );
-console.log( 'A divisão de ' + a + ' por ' + b + ' é: ' + (a / b) );
-console.log( 'O resto da divisão de ' + a + ' por ' + b + ' é: ' + (a % b) );
+console.log( 'A soma de ' + numero1 + ' e ' + numero2 + ' é: ' + (numero1 + numero2) );
+console.log( 'A subtração de ' + numero1 + ' por ' + numero2 + ' é: ' + (numero1 - numero2) );
+console.log( 'A multiplicação de ' + numero1 + ' por ' + numero2 + ' é: ' + (numero1 * numero2) );
+console.log( 'A divisão de ' + numero1 + ' por ' + numero2 + ' é: ' + (numero1 / numero2) );
+console.log( 'O resto da divisão de ' + numero1 + ' por ' + numero2 + ' é: ' + (numero1 % numero2) );

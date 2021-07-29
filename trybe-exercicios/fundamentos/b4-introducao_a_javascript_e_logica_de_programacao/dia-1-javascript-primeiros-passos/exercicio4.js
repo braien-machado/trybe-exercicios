@@ -1,9 +1,9 @@
-let a = -17;
+let numero = -17;
 
-if ( a > 0) {
+if ( numero > 0) {
   console.log('positive');
 }
-else if ( a < 0) {
+else if ( numero < 0) {
   console.log('negative');
 }
 else {
