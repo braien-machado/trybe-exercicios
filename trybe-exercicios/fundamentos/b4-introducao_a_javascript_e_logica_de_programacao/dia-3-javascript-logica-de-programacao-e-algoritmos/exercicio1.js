@@ -1,12 +1,12 @@
-let fruits = [3, 4, 10, 1, 12];
-let sum = 0;
-
-for (let index = 0; index < fruits.length; index += 1) {
-  sum += fruits[index];
-}
-
-if (sum > 15) {
-  console.log(sum);
+let n = 5;
+let squareOfAsterisk = '';
+if (n <=1){
+  console.log("Error. 'n' must be greater than 1");
 } else {
-  console.log('valor menor que 16');
+  for (let index = 1; index <= n; index += 1) {
+    squareOfAsterisk += '*';
+  }
+  for (let index = 1; index <= n; index += 1) {
+    console.log(squareOfAsterisk);
+  }
 }
