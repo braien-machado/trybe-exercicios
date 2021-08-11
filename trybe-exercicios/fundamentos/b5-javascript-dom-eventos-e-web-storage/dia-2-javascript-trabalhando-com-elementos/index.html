@@ -59,37 +59,37 @@
     <script>
       let body = document.querySelector('body');
 
-      let h1 = document.createElement('h1');
-      h1.innerHTML = 'Exercício 5.2 - JavaScript DOM';
-      body.appendChild(h1);
+      let title = document.createElement('h1');
+      title.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      body.appendChild(title);
 
-      let main = document.createElement('main');
-      main.className = 'main-content';
-      body.appendChild(main);
+      let mainContent = document.createElement('main');
+      mainContent.className = 'main-content';
+      body.appendChild(mainContent);
 
-      let sectionOne = document.createElement('section');
-      sectionOne.className = 'center-content';
-      main.appendChild(sectionOne);
+      let centerContent = document.createElement('section');
+      centerContent.className = 'center-content';
+      mainContent.appendChild(centerContent);
 
       let paragraph = document.createElement('p');
       paragraph.innerHTML = 'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet';
-      sectionOne.appendChild(paragraph);
+      centerContent.appendChild(paragraph);
 
-      let sectionTwo = document.createElement('section');
-      sectionTwo.className = 'left-content';
-      main.appendChild(sectionTwo);
+      let leftContent = document.createElement('section');
+      leftContent.className = 'left-content';
+      mainContent.appendChild(leftContent);
 
-      let sectionThree = document.createElement('section');
-      sectionThree.className = 'right-content';
-      main.appendChild(sectionThree);
+      let rightContent = document.createElement('section');
+      rightContent.className = 'right-content';
+      mainContent.appendChild(rightContent);
 
       let img = document.createElement('img');
       img.src = 'https://picsum.photos/200';
       img.className = 'small-image';
-      sectionTwo.appendChild(img);
+      leftContent.appendChild(img);
 
       let uList = document.createElement('ul');
-      sectionThree.appendChild(uList);
+      rightContent.appendChild(uList);
       let numbersList = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
       for (let i = 0; i < numbersList.length; i += 1) {
         let number = numbersList[i]
@@ -100,16 +100,17 @@
 
       for (let i = 0; i < 3; i += 1) {
         let h3 = document.createElement('h3');
-        main.appendChild(h3);
+        mainContent.appendChild(h3);
       }
 
-      h1.className = 'title';
+      title.className = 'title';
 
       let arrayH3 = document.querySelectorAll('h3');
       for (let i = 0; i < arrayH3.length; i += 1) {
         arrayH3[i].className = 'description';
       }
       
+      document.querySelector('.left-content').parentElement.removeChild(leftContent);
 
     </script>
   </body>
