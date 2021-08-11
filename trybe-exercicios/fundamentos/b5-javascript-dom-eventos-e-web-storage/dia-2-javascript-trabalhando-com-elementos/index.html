@@ -91,12 +91,16 @@
       let uList = document.createElement('ul');
       sectionThree.appendChild(uList);
       let numbersList = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
-      
       for (let i = 0; i < numbersList.length; i += 1) {
         let number = numbersList[i]
         let listNumber = document.createElement('li');
         listNumber.innerHTML = number;
         uList.appendChild(listNumber);
+      }
+
+      for (let i = 0; i < 3; i += 1) {
+        let h3 = document.createElement('h3');
+        main.appendChild(h3);
       }
 
     </script>
