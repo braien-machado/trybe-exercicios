@@ -104,3 +104,12 @@ for (let i = 0; i < daysArray.length; i += 1) {
   daysArray[i].addEventListener('mouseover', zoomInDay);
   daysArray[i].addEventListener('mouseleave', zoomOutDay);
 }
+
+function createTask(string) {
+  let task = document.createElement('span');
+  task.innerHTML = string;
+  document.querySelector('div.my-tasks').appendChild(task);
+}
+
+createTask('Cozinhar');
+
