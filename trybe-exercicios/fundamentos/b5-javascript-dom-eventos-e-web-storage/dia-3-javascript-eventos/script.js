@@ -113,3 +113,12 @@ function createTask(string) {
 
 createTask('Cozinhar');
 
+function createColorCaption(colorName) {
+  let colorCaption = document.createElement('div');
+  colorCaption.className = 'task';
+  colorCaption.style.backgroundColor = colorName;
+  document.querySelector('div.my-tasks').appendChild(colorCaption);
+}
+
+createColorCaption('orange');
+
