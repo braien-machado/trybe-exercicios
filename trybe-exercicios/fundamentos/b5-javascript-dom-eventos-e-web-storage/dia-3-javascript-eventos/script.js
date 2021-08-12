@@ -73,3 +73,18 @@ function createFridayButton(string) {
 }
 
 createFridayButton('Sexta-feira');
+
+document.getElementById('btn-friday').addEventListener('click', changeTextFridays);
+
+function changeTextFridays() {
+  let fridays = document.getElementsByClassName('friday');
+  let daysFridays = [4, 11, 18, 25];
+  for (let i = 0; i < fridays.length; i += 1) {
+    let fridayDay = fridays[i];
+    if (fridayDay.innerHTML !== 'Sexta-feira') {
+      fridayDay.innerHTML = 'Sexta-feira'
+    } else {
+      fridayDay.innerHTML = daysFridays[i];
+    }
+  }
+}
