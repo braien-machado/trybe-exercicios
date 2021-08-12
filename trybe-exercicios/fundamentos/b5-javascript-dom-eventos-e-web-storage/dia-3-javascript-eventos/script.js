@@ -88,3 +88,19 @@ function changeTextFridays() {
     }
   }
 }
+
+let daysArray = document.getElementById('days').children
+const daysFontSize = daysArray[0].style.fontSize;
+
+function zoomInDay(event) {
+  event.target.style.fontSize = '2.5em';
+}
+
+function zoomOutDay(event) {
+  event.target.style.fontSize = daysFontSize;
+}
+
+for (let i = 0; i < daysArray.length; i += 1) {
+  daysArray[i].addEventListener('mouseover', zoomInDay);
+  daysArray[i].addEventListener('mouseleave', zoomOutDay);
+}
