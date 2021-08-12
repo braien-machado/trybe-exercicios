@@ -65,4 +65,11 @@ function changeBGColorHolidays() {
 
 document.getElementById('btn-holiday').addEventListener('click', changeBGColorHolidays);
 
+function createFridayButton(string) {
+  let fridayButton = document.createElement('button');
+  fridayButton.id = 'btn-friday';
+  fridayButton.innerHTML = string;
+  document.querySelector('div.buttons-container').appendChild(fridayButton);
+}
 
+createFridayButton('Sexta-feira');
