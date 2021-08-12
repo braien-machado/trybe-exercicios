@@ -122,3 +122,15 @@ function createColorCaption(colorName) {
 
 createColorCaption('orange');
 
+function taskSelect(event) {
+  if (event.target.className === 'task') {
+    event.target.classList.add('selected');
+  } else {
+    event.target.className = 'task';
+  }
+}
+
+let tasks = document.querySelectorAll('.task');
+for (let i = 0; i < tasks.length; i += 1) {
+  tasks[i].addEventListener('click', taskSelect);
+}
