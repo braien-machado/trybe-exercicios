@@ -134,3 +134,17 @@ let tasks = document.querySelectorAll('.task');
 for (let i = 0; i < tasks.length; i += 1) {
   tasks[i].addEventListener('click', taskSelect);
 }
+
+// function changeColorToSelected(event) {
+//   let change = event.target.style.color
+//   let color = document.querySelector('.selected').style.backgroundColor;
+//   if (change === '') {
+//     change = color;
+//   } else {
+//     change = '';
+//   }
+// }
+
+// for (let i = 0; i < daysArray.length; i += 1) { 
+//   daysArray[i].addEventListener('click', changeColorToSelected);
+// }
