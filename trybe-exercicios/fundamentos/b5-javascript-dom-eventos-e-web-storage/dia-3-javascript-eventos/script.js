@@ -49,3 +49,20 @@ function createHolidaysButton(string) {
 }
 
 createHolidaysButton('Feriados');
+
+function changeBGColorHolidays() {
+  let holidays = document.getElementsByClassName('holiday');
+  for (let i = 0; i < holidays.length; i += 1) {
+    let day = holidays[i];
+    if (day.style.backgroundColor === '') {
+    day.style.backgroundColor = 'orange';
+    } else {
+      day.style.backgroundColor = '';
+    }
+
+  }
+}
+
+document.getElementById('btn-holiday').addEventListener('click', changeBGColorHolidays);
+
+
