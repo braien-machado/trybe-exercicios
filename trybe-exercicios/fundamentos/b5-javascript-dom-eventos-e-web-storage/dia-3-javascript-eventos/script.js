@@ -93,7 +93,7 @@ let daysArray = document.getElementById('days').children
 const daysFontSize = daysArray[0].style.fontSize;
 
 function zoomInDay(event) {
-  event.target.style.fontSize = '2.5em';
+  event.target.style.fontSize = '2em';
 }
 
 function zoomOutDay(event) {
@@ -135,16 +135,4 @@ for (let i = 0; i < tasks.length; i += 1) {
   tasks[i].addEventListener('click', taskSelect);
 }
 
-// function changeColorToSelected(event) {
-//   let change = event.target.style.color
-//   let color = document.querySelector('.selected').style.backgroundColor;
-//   if (change === '') {
-//     change = color;
-//   } else {
-//     change = '';
-//   }
-// }
-
-// for (let i = 0; i < daysArray.length; i += 1) { 
-//   daysArray[i].addEventListener('click', changeColorToSelected);
-// }
+// Exercício 10
