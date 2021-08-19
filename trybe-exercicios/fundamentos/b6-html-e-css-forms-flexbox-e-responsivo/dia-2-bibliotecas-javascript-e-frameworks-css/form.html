@@ -5,43 +5,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Currículo</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
 </head>
 <body>
-  <header id="title">
-    <h1>Formulário para Currículo</h1>
+  <header id="title" class='container'>
+    <h1 class='display-4'>Formulário para Currículo</h1>
   </header>
   <main>
     <form action="" method="GET">
-      <fieldset id="personal-info">
-        <legend>Informações pessoais</legend>
-        <div class="input-container">
+      <fieldset class='container'>
+        <legend class="lead">Informações pessoais</legend>
+        <div class='container'>
           <label for="name">Nome:</label>
-          <input type="text" name="n-name" id='name' required maxlength="40">
+          <input class='form-control' type="text" name="n-name" id='name' required maxlength="40">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="email">E-mail:</label>
-        <input type="text" name="n-email" id='email' required maxlength="50">
+        <input class='form-control' type="text" name="n-email" id='email' required maxlength="50">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="cpf">CPF:</label>
-          <input type="text" name="n-cpf" id='cpf' required maxlength="11">
+          <input class='form-control' type="text" name="n-cpf" id='cpf' required maxlength="11">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="address">Endereço:</label>
           <textarea name="n-adress" id="address" cols="30" rows="5" required maxlength="200"></textarea>
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="city">Cidade:</label>
-          <input type="text" name="n-city" id='city' required maxlength="28">
+          <input class='form-control' type="text" name="n-city" id='city' required maxlength="28">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="state">Estado:</label>
           <select name="n-state" id="state" required>
             <option disabled selected value>Selecione o estado</option>
           </select>
         </div>
-        <div class="input-container">
+        <div class='container'>
           Tipo:
           <label>
             <input type="radio" name="n-home" class="type-home" required value="house">
@@ -53,26 +53,26 @@
           </label>
         </div>
       </fieldset>
-      <fieldset id='last-job-info'>
-        <legend>Dados sobre último emprego</legend>
-        <div class='input-container'>
+      <fieldset id='last-job-info' class='container'>
+        <legend class="lead">Dados sobre último emprego</legend>
+        <div class='container'>
           <label for="resume">Resumo do currículo:</label>
           <textarea name="n-resume" id="resume" cols="30" rows="10" maxlength="1000" required></textarea>
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="role">Cargo:</label>
-          <input type="text" name='n-role' id='role' required maxlength="40">
+          <input class='form-control' type="text" name='n-role' id='role' required maxlength="40">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="role-description">Descrição do Cargo:</label>
-          <input type="text" name='n-role-description' id='role-description' required maxlength="500">
+          <input class='form-control' type="text" name='n-role-description' id='role-description' required maxlength="500">
         </div>
-        <div class="input-container">
+        <div class='container'>
           <label for="date">Data de Início:</label>
-          <input type="text" name='n-date' id='date' required maxlength="10" minlength="10">
+          <input class='form-control' type="text" name='n-date' id='date' required maxlength="10" minlength="10">
         </div>
       </fieldset>
-      <div id='button-container'>
+      <div class='container'>
         <button type="submit" id="submit-btn">Enviar</button>
         <button type="button" id="clear-btn">Limpar</button>
       </div>

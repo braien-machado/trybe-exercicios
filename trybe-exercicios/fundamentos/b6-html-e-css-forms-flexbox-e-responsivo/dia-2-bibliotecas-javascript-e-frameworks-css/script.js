@@ -10,6 +10,10 @@ function addOptionsState() {
   }
 }
 
+function submit() {}
+
+function clear() {}
+
 window.onload = function init() {
   addOptionsState();
 
