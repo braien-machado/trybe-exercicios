@@ -93,7 +93,7 @@ let daysArray = document.getElementById('days').children
 const daysFontSize = daysArray[0].style.fontSize;
 
 function zoomInDay(event) {
-  event.target.style.fontSize = '2.5em';
+  event.target.style.fontSize = '2em';
 }
 
 function zoomOutDay(event) {
@@ -134,3 +134,5 @@ let tasks = document.querySelectorAll('.task');
 for (let i = 0; i < tasks.length; i += 1) {
   tasks[i].addEventListener('click', taskSelect);
 }
+
+// Exercício 10
