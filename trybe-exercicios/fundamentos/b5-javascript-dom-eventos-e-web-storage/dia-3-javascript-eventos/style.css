@@ -73,24 +73,23 @@ label {
   clear: both;
   float: left;
   height: 100px;
-  vertical-align: middle;
   width: 49%;
 }
 
-.my-tasks div {
+.task{
   border: 1px solid black;
   border-radius: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: inline-block;
-  height: 35px;
+  height: 20px;
   margin-left: 10px;
   vertical-align:middle;
-  width: 35px;
+  width: 20px;
 }
 
-.my-tasks div:hover {
-  height: 2.5em;
-  width: 2.5em;
+.task:hover {
+  height: 30px;
+  width: 30px;
 }
 
 .my-tasks span {
@@ -151,4 +150,9 @@ label {
   font-size: 20px;
   margin: 0px;
   padding: 10px 0;
+}
+
+.task.selected {
+  border: 2px blue;
+  border-style: outset;
 }
