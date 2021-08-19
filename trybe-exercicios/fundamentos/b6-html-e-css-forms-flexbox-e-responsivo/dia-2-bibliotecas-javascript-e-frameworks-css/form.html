@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Currículo</title>
-  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
 </head>
 <body>
-  <header id="title">
-    <h1>Formulário para Currículo</h1>
+  <header class="box" id="title">
+    <h1 class="title is-2">Formulário para Currículo</h1>
   </header>
-  <main>
+  <main class="box">
     <form action="" method="GET">
-      <fieldset>
-        <legend>Informações pessoais</legend>
+      <fieldset class="box">
+        <legend class="subtitle is-4">Informações pessoais</legend>
         <div>
           <label for="name">Nome:</label>
           <input type="text" name="n-name" id='name' required maxlength="40">
@@ -53,8 +53,8 @@
           </div>
         </div>
       </fieldset>
-      <fieldset id='last-job-info' class='container mb-3'>
-        <legend>Dados sobre último emprego</legend>
+      <fieldset id='last-job-info' class="box">
+        <legend class="subtitle is-4">Dados sobre último emprego</legend>
         <div>
           <label for="resume">Resumo do currículo:</label>
           <textarea name="n-resume" id="resume" cols="30" rows="10" maxlength="1000" required></textarea>
@@ -72,9 +72,9 @@
           <input type="text" name='n-date' id='date' required maxlength="10" minlength="10">
         </div>
       </fieldset>
-      <div>
-        <button type="submit" id="submit-btn">Enviar</button>
-        <button type="button" id="clear-btn">Limpar</button>
+      <div class="buttons is-centered has-addons">
+        <button class="button is-success is-selected" type="submit" id="submit-btn">Enviar</button>
+        <button class="button is-hovered" type="button" id="clear-btn">Limpar</button>
       </div>
     </form>
   </main>
