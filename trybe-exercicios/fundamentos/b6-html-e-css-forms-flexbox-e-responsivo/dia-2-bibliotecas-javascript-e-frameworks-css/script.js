@@ -11,11 +11,14 @@ function addOptionsState() {
 }
 
 function validateDate() {
-  alert('funciona');
+  if (startDate.value !== '') {
+    alert('funciona');
+  }
 }
 
 const startDate = document.querySelector('#date');
 startDate.addEventListener('change', validateDate);
+
 
 function submit() {}
 
