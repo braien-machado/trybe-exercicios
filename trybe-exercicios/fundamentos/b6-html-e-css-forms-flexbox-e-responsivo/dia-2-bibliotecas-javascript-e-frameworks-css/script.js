@@ -10,12 +10,21 @@ function addOptionsState() {
   }
 }
 
+function validateDate() {
+  if (startDate.value !== '') {
+    alert('funciona');
+  }
+}
+
+const startDate = document.querySelector('#date');
+startDate.addEventListener('change', validateDate);
+
+
+function submit() {}
+
 window.onload = function init() {
   addOptionsState();
 
   let btnSubmit = document.getElementById('submit-btn');
   btnSubmit.addEventListener('click', submit);
-
-  let btnClear = document.getElementById('clear-btn');
-  btnClear.addEventListener('click', clear);
 }

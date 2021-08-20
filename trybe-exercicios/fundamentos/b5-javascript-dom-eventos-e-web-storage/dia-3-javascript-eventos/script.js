@@ -13,7 +13,6 @@ function createDaysOfTheWeek() {
 
 createDaysOfTheWeek();
 
-// Escreva seu código abaixo.
 function createDays(){
   const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9,   10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
   const fridays = [4, 11, 18, 25];
@@ -24,6 +23,7 @@ function createDays(){
     let day = document.createElement('li');
     day.innerHTML = dezDaysList[i];
     day.classList.add('day');
+    day.addEventListener('click', changeColor);
     
     for (let number of fridays) {
       if (dezDaysList[i] === number){
@@ -135,4 +135,16 @@ for (let i = 0; i < tasks.length; i += 1) {
   tasks[i].addEventListener('click', taskSelect);
 }
 
-// Exercício 10
+function changeColor(event) {
+  if (document.querySelector('.selected')){
+    const color = document.querySelector('.selected').style.backgroundColor;
+    let day = event.target;
+    if (day.style.color !== color) {
+      day.style.color = color;
+    } else {
+      day.style.color = 'rgb(119, 119, 119)';
+    }
+  }
+}
+
+//BÔNUS
