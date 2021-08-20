@@ -8,73 +8,85 @@
   <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
 </head>
 <body>
-  <header class="box" id="title">
-    <h1 class="title is-2">Formulário para Currículo</h1>
+  <header class="hero is-primary" id="title">
+    <div class="hero-body">
+      <h1 class="title is-2">
+        Formulário para Currículo
+      </h1>
+    </div>
   </header>
   <main class="box">
     <form action="" method="GET">
       <fieldset class="box">
         <legend class="subtitle is-4">Informações pessoais</legend>
-        <div>
-          <label for="name">Nome:</label>
-          <input type="text" name="n-name" id='name' required maxlength="40">
-        </div>
-        <div>
-          <label for="email">E-mail:</label>
-        <input type="text" name="n-email" id='email' required maxlength="50">
-        </div>
-        <div>
-          <label for="cpf">CPF:</label>
-          <input type="text" name="n-cpf" id='cpf' required maxlength="11">
-        </div>
-        <div>
-          <label for="address">Endereço:</label>
-          <textarea name="n-adress" id="address" cols="30" rows="5" required maxlength="200"></textarea>
-        </div>
-        <div>
-          <label for="city">Cidade:</label>
-          <input type="text" name="n-city" id='city' required maxlength="28">
-        </div>
-        <div>
-          <label for="state">Estado:</label>
-          <select name="n-state" id="state" required>
-            <option disabled selected value>Selecione o estado</option>
-          </select>
-        </div>
-        <div>
-          Tipo:
-          <div>
-            <input type="radio" name="n-home" class="form-check-input" required value="house" id="house">
-            <label for="house">Casa</label>
+        <div class='field'>
+          <label class="label" for="name">Nome:</label>
+            <input class='input' type="text" name="n-name" id='name' required maxlength="40">
           </div>
-          <div> 
-            <input type="radio" name="n-home" class="form-check-input" id="apartment" required value="apartment">
-            <label for="apartment">Apartamento</label>
+        <div class='field'>
+          <label class="label" for="email">E-mail:</label>
+        <input class='input' type="text" name="n-email" id='email' required maxlength="50">
+        </div>
+        <div class='field'>
+          <label class="label" for="cpf">CPF:</label>
+          <input class='input' type="text" name="n-cpf" id='cpf' required maxlength="11">
+        </div>
+        <div class='field'>
+          <label class="label" for="address">
+            Endereço:
+          </label>
+          <textarea class='textarea is-small' name="n-adress" id="address" cols="30" rows="5" required maxlength="200"></textarea>
+        </div>
+        <div class='field'>
+          <label class="label" for="city">Cidade:</label>
+          <input class='input' type="text" name="n-city" id='city' required maxlength="28">
+        </div>
+        <div class='field'>
+          <label class="label" for="state">Estado:</label>
+          <div class="select">
+            <select name="n-state" id="state" required>
+              <option disabled selected value>Selecione o estado</option>
+            </select>
+          </div>
+        </div>
+        <div class='field'>
+          Tipo:
+          <div class='field'>
+            <label class="radio" for="house">
+              <input type="radio" name="n-home" required value="house" id="house">
+              Casa
+            </label>
+            <label class="radio" for="apartment">
+              <input type="radio" name="n-home" id="apartment" required value="apartment">
+              Apartamento
+            </label>
           </div>
         </div>
       </fieldset>
       <fieldset id='last-job-info' class="box">
         <legend class="subtitle is-4">Dados sobre último emprego</legend>
-        <div>
-          <label for="resume">Resumo do currículo:</label>
-          <textarea name="n-resume" id="resume" cols="30" rows="10" maxlength="1000" required></textarea>
+        <div class='field'>
+          <label class="label" for="resume">
+            Resumo do currículo:
+          </label>
+          <textarea class='textarea is-small' name="n-resume" id="resume" cols="30" rows="10" maxlength="1000" required></textarea>
         </div>
-        <div>
-          <label for="role">Cargo:</label>
-          <input type="text" name='n-role' id='role' required maxlength="40">
+        <div class='field'>
+          <label class="label" for="role">Cargo:</label>
+          <input class="input" type="text" name='n-role' id='role' required maxlength="40">
         </div>
-        <div>
-          <label for="role-description">Descrição do Cargo:</label>
-          <input type="text" name='n-role-description' id='role-description' required maxlength="500">
+        <div class='field'>
+          <label class="label" for="role-description">Descrição do Cargo:</label>
+          <input class="input" type="text" name='n-role-description' id='role-description' required maxlength="500">
         </div>
-        <div>
-          <label for="date">Data de Início:</label>
-          <input type="text" name='n-date' id='date' required maxlength="10" minlength="10">
+        <div class='field'>
+          <label class="label" for="date">Data de Início:</label>
+          <input class="input" type="text" name='n-date' id='date' required maxlength="10" minlength="10">
         </div>
       </fieldset>
       <div class="buttons is-centered has-addons">
         <button class="button is-success is-selected" type="submit" id="submit-btn">Enviar</button>
-        <button class="button is-hovered" type="button" id="clear-btn">Limpar</button>
+        <button class="button is-hovered" type="reset" id="clear-btn">Limpar</button>
       </div>
     </form>
   </main>
