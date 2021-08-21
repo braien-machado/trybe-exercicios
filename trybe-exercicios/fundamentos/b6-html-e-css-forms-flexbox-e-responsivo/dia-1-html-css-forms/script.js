@@ -32,26 +32,39 @@ function validateText(string, number) {
 }
 
 function validateTexts() {
-  const validateTexts = [validateText(nameInput, 40),validateText(cpf, 11), validateText(address, 200), validateText(city, 28), validateText(resume, 1000), validateText(role, 40), validateText(roleDescription, 500),]
+  const funcValiText = [validateText(nameInput, 40),validateText(cpf, 11), validateText(address, 200), validateText(city, 28), validateText(resume, 1000), validateText(role, 40), validateText(roleDescription, 500)];
   let numberError = 0;
 
-  for (value of validateTexts) {
+  for (value of funcValiText) {
     numberError += value;
   }
   console.log(numberError);
 }
 
 function validateInputs() {
-  validateTexts();
-  // validateEmail();
-  // validateSelect();
-  // validateRadio();
-  // validateDate();
+  let countError = 0;
+  const validateInput = [validateTexts(), validateEmail(), validateCpf(), validateSelect(), validateRadio(), validateDate()];
+
+  for (value of validateInput) {
+    countError += value;
+  }
+  if (countError === 0) {
+    return true;
+  }
+  return false;
 }
 
 function submit(event) {
   event.preventDefault();
-  validateInputs();
+  if (validateInputs()) {
+    function resultForm() {
+      // cria div com dados inseridos
+    };
+  } else {
+    function resultErro() {
+      // cria div com erros
+    }
+  }
 }
 
 window.onload = function init() {
