@@ -1,20 +1,22 @@
 const arrayStatesBrazil = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão','Mato Grosso','Mato rosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte','Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins'];
 
 const nameInput = document.getElementById('name');
+const email = document.getElementById('email');
 const cpf = document.getElementById('cpf');
 const address = document.getElementById('address');
 const city = document.getElementById('city');
+const state = document.getElementById('state');
 const resume = document.getElementById('resume');
 const role = document.getElementById('role');
 const roleDescription = document.getElementById('role-description');
+const date = document.getElementById('date');
 
 function addOptionsState() {
-  const select = document.getElementById('state');
   for (let value of arrayStatesBrazil) {
     let option = document.createElement('option');
     option.innerText = value;
     option.value = value;
-    select.appendChild(option);
+    state.appendChild(option);
   }
 }
 
@@ -22,7 +24,7 @@ function validateText(string, number) {
   const value = string.value;
   if (value) {
     if (value.length > number) {
-      alert(`${value} tem mais de ${number} caracteres!`)
+      alert(`${string.id} ultrapassa o limite de ${number} caracteres!`)
       return 1;
     }
     return 0;
@@ -38,7 +40,36 @@ function validateTexts() {
   for (value of funcValiText) {
     numberError += value;
   }
-  console.log(numberError);
+  return numberError;
+}
+
+function checkChar(string) {
+  for (let i = 1; i < (string.length - 1); i += 1) {
+    if (string[i] === '@') {
+      return true;
+    }
+  }
+  return false;
+}
+
+function validateEmail() {
+  const string = email.value;
+  if (string) {
+    if (string.length > 50) {
+      alert(`${email.id} ultrapassa o limite de 50 caracteres!`)
+      return 1;
+    }
+    if (!checkChar(string)) {
+      alert(`${email.id} inválido.`)
+      return 1;
+    }
+  }
+  alert(`${email.id} é um campo obrigatório.`)
+}
+
+function validateCpf() {
+  const string = cpf.value;
+  
 }
 
 function validateInputs() {
