@@ -65,11 +65,30 @@ function validateEmail() {
     }
   }
   alert(`${email.id} é um campo obrigatório.`)
+  return 1;
+}
+
+function checkCpfNumbers(string) {
+  const arrayOfNumbers = string.match(/\d/g);
+  if (arrayOfNumbers.length !== 11) { /**AQUI */
+
+  }
 }
 
 function validateCpf() {
   const string = cpf.value;
-  
+  if (string) {
+    if (string.length !== 11) {
+      alert(`${cpf.id} precisa ter 11 caracteres.`)
+      return 1;
+    }
+    if (!checkCpfNumbers(string)) {
+      alert(`${cpf.id} precisa ter apenas caracteres numéricos.`) /**AQUI */
+      return 1;
+    }
+  }
+  alert(`${cpf.id} é um campo obrigatório.`)
+  return 1;
 }
 
 function validateInputs() {
