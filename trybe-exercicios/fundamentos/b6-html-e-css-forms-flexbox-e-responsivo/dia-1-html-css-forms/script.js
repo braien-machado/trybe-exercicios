@@ -25,12 +25,12 @@ function validateText(string, number) {
   const value = string.value;
   if (value) {
     if (value.length > number) {
-      alert(`${string.id} ultrapassa o limite de ${number} caracteres!`)
+      divError(`${string.id} ultrapassa o limite de ${number} caracteres!`)
       return 1;
     }
     return 0;
   }
-  alert(`${string.id} é um campo obrigatório.`)
+  divError(`${string.id} é um campo obrigatório.`)
   return 1;
 }
 
@@ -57,16 +57,16 @@ function validateEmail() {
   const string = email.value;
   if (string) {
     if (string.length > 50) {
-      alert(`${email.id} ultrapassa o limite de 50 caracteres!`)
+      divError(`${email.id} ultrapassa o limite de 50 caracteres!`)
       return 1;
     }
     if (!checkChar(string)) {
-      alert(`${email.id} inválido.`)
+      divError(`${email.id} inválido.`)
       return 1;
     }
     return 0;
   }
-  alert(`${email.id} é um campo obrigatório.`)
+  divError(`${email.id} é um campo obrigatório.`)
   return 1;
 }
 
@@ -82,23 +82,23 @@ function validateCpf() {
   const string = cpf.value;
   if (string) {
     if (string.length !== 11) {
-      alert(`${cpf.id} precisa ter 11 caracteres.`);
+      divError(`${cpf.id} precisa ter 11 caracteres.`);
       return 1;
     }
     if (!checkCpfNumbers(string)) {
-      alert(`${cpf.id} precisa ter apenas caracteres numéricos.`);
+      divError(`${cpf.id} precisa ter apenas caracteres numéricos.`);
       return 1;
     }
     return 0;
   }
-  alert(`${cpf.id} é um campo obrigatório.`)
+  divError(`${cpf.id} é um campo obrigatório.`)
   return 1;
 }
 
 function validateState() {
   const optionState = state.value;
   if (!optionState) {
-    alert(`${state.id} é um campo obrigatório.`);
+    divError(`${state.id} é um campo obrigatório.`);
     return 1;
   }
   return 0;
@@ -107,7 +107,7 @@ function validateState() {
 function validateHome() {
   selectedRadioOption = document.querySelector('.selectedHome')
   if (!selectedRadioOption) {
-    alert(`"Tipo" é um campo obrigatório.`);
+    divError(`"Tipo" é um campo obrigatório.`);
     return 1;
   }
   return 0;
@@ -115,15 +115,15 @@ function validateHome() {
 
 function checkValuesDate(arrayDate) {
   if (arrayDate[0] < 1 || arrayDate[0] >= 31) {
-    alert('Dia inválido. Valor deve ser maior que 0 e menor que 32.')
+    divError('Dia inválido. Valor deve ser maior que 0 e menor que 32.')
     return 1;
   }
   if (arrayDate[1] < 1 || arrayDate[1] >= 12) {
-    alert('Mês inválido. Valor deve ser maior que 0 e menor que 13.')
+    divError('Mês inválido. Valor deve ser maior que 0 e menor que 13.')
     return 1;
   }
   if (arrayDate[2] < 0) {
-    alert('Ano inválido. Valor deve ser maior que 0.')
+    divError('Ano inválido. Valor deve ser maior que 0.')
     return 1;
   }
   return 0;
@@ -134,16 +134,16 @@ function checkDate(dateString) {
   const arrayDate = dateString.match(/\d+/g);
   const invalidFormatMsg = 'Formato de data inválido. Favor, seguir padrão dd/mm/yyyy.'
   if ((stringSplit.length !== 3) || (dateString.length !== 10)) {
-    alert(invalidFormatMsg);
+    divError(invalidFormatMsg);
     return 1;
   }
   for (let i = 0; i < 3; i += 1) {
     if ((i !== 2) && (arrayDate[i].length !== 2)) {
-      alert(invalidFormatMsg);
+      divError(invalidFormatMsg);
       return 1;
     }
     if ((i === 2) && (arrayDate[i].length !== 4)) {
-      alert(invalidFormatMsg);
+      divError(invalidFormatMsg);
       return 1;
     }
     arrayDate[i] = parseInt(arrayDate[i], 10);
@@ -156,7 +156,7 @@ function validateDate() {
   if (dateString) {
     return checkDate(dateString);
   }
-  alert(`${date.id} é um campo obrigatório.`);
+  divError(`${date.id} é um campo obrigatório.`);
   return 1;
 }
 
@@ -187,6 +187,13 @@ function resultForm() {
       formResult.appendChild(divResult);
     }
   }
+}
+
+function divError(string) {
+  const formResult = document.getElementById('result-form');
+  const errorMessage = document.createElement('div');
+  errorMessage.innerHTML = string;
+  formResult.appendChild(errorMessage);
 }
 
 function submit(event) {
