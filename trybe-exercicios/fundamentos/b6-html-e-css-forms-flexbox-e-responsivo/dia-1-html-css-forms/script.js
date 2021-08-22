@@ -176,7 +176,6 @@ function validateInputs() {
 }
 
 function resultForm() {
-  formResult.innerHTML = '';
   const arrayResult = [nameInput, email, cpf, address, city, state, selectedRadioOption, resume, role, roleDescription, date];
   for (let i of arrayResult) {
     if (i !== selectedRadioOption) {
@@ -199,13 +198,10 @@ function divError(string) {
 }
 
 function submit(event) {
+  formResult.innerHTML = '';
   event.preventDefault();
   if (validateInputs()) {
     resultForm();
-  } else {
-    function resultErro() {
-      // cria div com erros
-    }
   }
 }
 
