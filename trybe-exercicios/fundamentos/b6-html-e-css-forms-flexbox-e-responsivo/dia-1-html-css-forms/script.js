@@ -104,10 +104,57 @@ function validateState() {
 function validateHome() {
   const selectedRadioOption = document.querySelector('.selectedHome');
   if (!selectedRadioOption) {
-    alert(`"Tipo" é um campo obrigatório.`)
+    alert(`"Tipo" é um campo obrigatório.`);
     return 1;
   }
   return 0;
+}
+
+function checkValuesDate(arrayDate) {
+  if (arrayDate[0] < 1 || arrayDate[0] >= 31) {
+    alert('Dia inválido. Valor deve ser maior que 0 e menor que 32.')
+    return 1;
+  }
+  if (arrayDate[1] < 1 || arrayDate[1] >= 12) {
+    alert('Mês inválido. Valor deve ser maior que 0 e menor que 13.')
+    return 1;
+  }
+  if (arrayDate[2] < 0) {
+    alert('Ano inválido. Valor deve ser maior que 0.')
+    return 1;
+  }
+  return 0;
+}
+
+function checkDate(dateString) {
+  const stringSplit = dateString.split('/');
+  const arrayDate = dateString.match(/\d+/g);
+  const invalidFormatMsg = 'Formato de data inválido. Favor, seguir padrão dd/mm/yyyy.'
+  if ((stringSplit.length !== 3) || (dateString.length !== 10)) {
+    alert(invalidFormatMsg);
+    return 1;
+  }
+  for (let i = 0; i < 3; i += 1) {
+    if ((i !== 2) && (arrayDate[i].length !== 2)) {
+      alert(invalidFormatMsg);
+      return 1;
+    }
+    if ((i === 2) && (arrayDate[i].length !== 4)) {
+      alert(invalidFormatMsg);
+      return 1;
+    }
+    arrayDate[i] = parseInt(arrayDate[i], 10);
+  }
+  return checkValuesDate(arrayDate);
+}
+
+function validateDate() {
+  const dateString = date.value;
+  if (dateString) {
+    return checkDate(dateString);
+  }
+  alert(`${date.id} é um campo obrigatório.`);
+  return 1;
 }
 
 function validateInputs() {
@@ -117,6 +164,7 @@ function validateInputs() {
   for (value of validateInput) {
     countError += value;
   }
+  console.log(countError);
   if (countError === 0) {
     return true;
   }
