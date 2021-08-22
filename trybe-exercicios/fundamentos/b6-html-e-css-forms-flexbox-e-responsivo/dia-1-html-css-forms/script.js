@@ -12,6 +12,8 @@ const roleDescription = document.getElementById('role-description');
 const date = document.getElementById('date');
 let selectedRadioOption = document.querySelector('.selectedHome');
 
+const formResult = document.getElementById('result-form');
+
 function addOptionsState() {
   for (let value of arrayStatesBrazil) {
     let option = document.createElement('option');
@@ -174,7 +176,7 @@ function validateInputs() {
 }
 
 function resultForm() {
-  const formResult = document.getElementById('result-form');
+  formResult.innerHTML = '';
   const arrayResult = [nameInput, email, cpf, address, city, state, selectedRadioOption, resume, role, roleDescription, date];
   for (let i of arrayResult) {
     if (i !== selectedRadioOption) {
@@ -219,6 +221,10 @@ function setSelectedRadio(event) {
   }
 }
 
+function clearAll(event) {
+  formResult.innerHTML = '';
+}
+
 window.onload = function init() {
   addOptionsState();
   let radioOptions = document.getElementsByClassName('type-home');
@@ -228,4 +234,7 @@ window.onload = function init() {
 
   let btnSubmit = document.getElementById('submit-btn');
   btnSubmit.addEventListener('click', submit);
+
+  let btnClear = document.getElementById('clear-btn');
+  btnClear.addEventListener('click', clearAll);
 }
