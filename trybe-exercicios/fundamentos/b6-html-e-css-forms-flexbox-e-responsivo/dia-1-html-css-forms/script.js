@@ -10,6 +10,7 @@ const resume = document.getElementById('resume');
 const role = document.getElementById('role');
 const roleDescription = document.getElementById('role-description');
 const date = document.getElementById('date');
+let selectedRadioOption = document.querySelector('.selectedHome');
 
 function addOptionsState() {
   for (let value of arrayStatesBrazil) {
@@ -34,7 +35,7 @@ function validateText(string, number) {
 }
 
 function validateTexts() {
-  const funcValiText = [validateText(nameInput, 40),validateText(cpf, 11), validateText(address, 200), validateText(city, 28), validateText(resume, 1000), validateText(role, 40), validateText(roleDescription, 500)];
+  const funcValiText = [validateText(nameInput, 40), validateText(address, 200), validateText(city, 28), validateText(resume, 1000), validateText(role, 40), validateText(roleDescription, 500)];
   let numberError = 0;
 
   for (value of funcValiText) {
@@ -63,6 +64,7 @@ function validateEmail() {
       alert(`${email.id} inválido.`)
       return 1;
     }
+    return 0;
   }
   alert(`${email.id} é um campo obrigatório.`)
   return 1;
@@ -87,6 +89,7 @@ function validateCpf() {
       alert(`${cpf.id} precisa ter apenas caracteres numéricos.`);
       return 1;
     }
+    return 0;
   }
   alert(`${cpf.id} é um campo obrigatório.`)
   return 1;
@@ -102,7 +105,7 @@ function validateState() {
 }
 
 function validateHome() {
-  const selectedRadioOption = document.querySelector('.selectedHome');
+  selectedRadioOption = document.querySelector('.selectedHome')
   if (!selectedRadioOption) {
     alert(`"Tipo" é um campo obrigatório.`);
     return 1;
@@ -164,19 +167,32 @@ function validateInputs() {
   for (value of validateInput) {
     countError += value;
   }
-  console.log(countError);
   if (countError === 0) {
     return true;
   }
   return false;
 }
 
+function resultForm() {
+  const formResult = document.getElementById('result-form');
+  const arrayResult = [nameInput, email, cpf, address, city, state, selectedRadioOption, resume, role, roleDescription, date];
+  for (let i of arrayResult) {
+    if (i !== selectedRadioOption) {
+      const divResult = document.createElement('div');
+      divResult.innerHTML = `${i.previousElementSibling.innerText} ${i.value}`;
+      formResult.appendChild(divResult);
+    } else {
+      const divResult = document.createElement('div');
+      divResult.innerHTML = `Tipo: ${i.parentNode.innerText}`;
+      formResult.appendChild(divResult);
+    }
+  }
+}
+
 function submit(event) {
   event.preventDefault();
   if (validateInputs()) {
-    function resultForm() {
-      // cria div com dados inseridos
-    };
+    resultForm();
   } else {
     function resultErro() {
       // cria div com erros
