@@ -70,20 +70,21 @@ function validateEmail() {
 
 function checkCpfNumbers(string) {
   const arrayOfNumbers = string.match(/\d/g);
-  if (arrayOfNumbers.length !== 11) { /**AQUI */
-
+  if (arrayOfNumbers.length !== 11) {
+    return false;
   }
+  return true;
 }
 
 function validateCpf() {
   const string = cpf.value;
   if (string) {
     if (string.length !== 11) {
-      alert(`${cpf.id} precisa ter 11 caracteres.`)
+      alert(`${cpf.id} precisa ter 11 caracteres.`);
       return 1;
     }
     if (!checkCpfNumbers(string)) {
-      alert(`${cpf.id} precisa ter apenas caracteres numéricos.`) /**AQUI */
+      alert(`${cpf.id} precisa ter apenas caracteres numéricos.`);
       return 1;
     }
   }
