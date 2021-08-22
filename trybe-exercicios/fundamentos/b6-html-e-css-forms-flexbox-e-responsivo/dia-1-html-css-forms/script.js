@@ -1,4 +1,4 @@
-const arrayStatesBrazil = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão','Mato Grosso','Mato rosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte','Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins'];
+const arrayStatesBrazil = ['Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goiás','Maranhão','Mato Grosso','Mato Grosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro','Rio Grande do Norte','Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe','Tocantins'];
 
 const nameInput = document.getElementById('name');
 const email = document.getElementById('email');
@@ -92,9 +92,27 @@ function validateCpf() {
   return 1;
 }
 
+function validateState() {
+  const optionState = state.value;
+  if (!optionState) {
+    alert(`${state.id} é um campo obrigatório.`);
+    return 1;
+  }
+  return 0;
+}
+
+function validateHome() {
+  const selectedRadioOption = document.querySelector('.selectedHome');
+  if (!selectedRadioOption) {
+    alert(`"Tipo" é um campo obrigatório.`)
+    return 1;
+  }
+  return 0;
+}
+
 function validateInputs() {
   let countError = 0;
-  const validateInput = [validateTexts(), validateEmail(), validateCpf(), validateSelect(), validateRadio(), validateDate()];
+  const validateInput = [validateTexts(), validateEmail(), validateCpf(), validateState(), validateHome(), validateDate()];
 
   for (value of validateInput) {
     countError += value;
@@ -118,8 +136,24 @@ function submit(event) {
   }
 }
 
+function setSelectedRadio(event) {
+  const newSelectedRadio = event.target;
+  let selectedRadio = document.querySelector('.selectedHome');
+
+  if (selectedRadio) {
+    selectedRadio.classList.remove('selectedHome');
+    newSelectedRadio.classList.add('selectedHome');
+  } else {
+    newSelectedRadio.classList.add('selectedHome');
+  }
+}
+
 window.onload = function init() {
   addOptionsState();
+  let radioOptions = document.getElementsByClassName('type-home');
+  for (let i of radioOptions) {
+    i.addEventListener('click', setSelectedRadio);
+  }
 
   let btnSubmit = document.getElementById('submit-btn');
   btnSubmit.addEventListener('click', submit);
