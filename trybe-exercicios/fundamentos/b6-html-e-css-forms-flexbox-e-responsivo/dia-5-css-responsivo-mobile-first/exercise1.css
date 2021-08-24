@@ -43,6 +43,8 @@ figure:last-child {
 
 figcaption {
     font-size: 0.8em;
+    font-style: italic;
+    margin-top: 5px;
 }
 
 main {
@@ -54,7 +56,31 @@ main {
 @media screen and (min-width: 940px) {
     body {
         background-color: green;
+        font-size: 1em;
+        margin: 7%;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+        width: 100%;
+    }
+
+    figure {
+        max-width: 45%;
+    }
+
+    figcaption {
+        font-size: 0.9em;
+    }
+
+    main {
+        flex-flow: row wrap;
+        justify-content: space-between;
     }
 }
 
-/* breakout width: 940px */
+/* breakpoint min-with: 1300px */
