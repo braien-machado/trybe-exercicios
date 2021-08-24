@@ -1,0 +1,27 @@
+body {
+    font-size: 1.3em;
+    margin: 25px;
+}
+h1 {
+    font-size: 1.3em;
+}
+h2 {
+ font-size: 1.2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+figure:last-child {
+    margin: 0;
+}
+
+figcaption {
+    font-size: 0.8em;
+}
