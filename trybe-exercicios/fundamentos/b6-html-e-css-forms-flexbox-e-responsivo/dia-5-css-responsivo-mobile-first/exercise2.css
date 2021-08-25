@@ -7,7 +7,9 @@ html {
 
 body {
   margin: 10%;
-  min-width: 300px;
+  background-color: rgb(231, 224, 224);
+  display: flex;
+  justify-content: center;
 }
 
 header p {
@@ -28,4 +30,35 @@ nav ul {
 
 aside h2 {
   font-size: 1em;
+}
+
+.aside-two ul {
+  list-style: square;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content h1 {
+  font-size: 1.0em;
+  text-align: center;
+  max-width: 70%;
+}
+
+.main-content p {
+  font-size: 1.1em;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+footer h3 {
+  font-size: 1.2em;
+  text-align: center;
 }
