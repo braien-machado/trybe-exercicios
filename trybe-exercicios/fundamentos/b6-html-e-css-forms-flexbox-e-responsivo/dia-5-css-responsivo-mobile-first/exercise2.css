@@ -4,3 +4,28 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+body {
+  margin: 10%;
+  min-width: 300px;
+}
+
+header p {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+aside h2 {
+  font-size: 1em;
+}
