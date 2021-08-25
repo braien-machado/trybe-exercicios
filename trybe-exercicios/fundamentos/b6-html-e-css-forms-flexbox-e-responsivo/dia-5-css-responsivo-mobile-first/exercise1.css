@@ -55,7 +55,7 @@ main {
 
 @media screen and (min-width: 940px) {
     body {
-        background-color: green;
+        background-color: blue;
         font-size: 1em;
         margin: 7%;
     }
@@ -79,8 +79,36 @@ main {
 
     main {
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 }
 
-/* breakpoint min-with: 1300px */
+@media screen and (min-width: 1300px) {
+    body {
+        background-color: green;
+        font-size: 1.2em;
+        margin: 10%;
+        align-items: center;
+        max-width: 1300px;
+    }
+
+    p {
+        text-align: justify;
+    }
+    
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+
+    figure {
+        max-width: 45%;
+    }
+
+    figcaption {
+        font-size: 1em;
+    }
+}
