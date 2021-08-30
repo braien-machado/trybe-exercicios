@@ -37,13 +37,13 @@ console.log(longestWord(`I hate to see you go, now that you're gone We can enjoy
 - Uma variável clickCount no arquivo JavaScript que acumule o número de clicks no botão;
 - Um campo no HTML que vá atualizando a quantidade de clicks no botão conforme a variável clickCount é atualizada. */
 
-const button = document.getElementById('button');
-const counter = document.getElementById('counter');
-let clickCount = 0;
-button.addEventListener('click', () => {
-  clickCount += 1
-  return counter.innerHTML = clickCount;
-})
+// const button = document.getElementById('button');
+// const counter = document.getElementById('counter');
+// let clickCount = 0;
+// button.addEventListener('click', () => {
+//   clickCount += 1
+//   return counter.innerHTML = clickCount;
+// })
 
 /** 4. Crie um código JavaScript com a seguinte especificação:
 - Não se esqueça de usar template literals
@@ -53,9 +53,36 @@ button.addEventListener('click', () => {
     String determinada: "Tryber x aqui!"
     Parâmetro: "Bebeto"
     Retorno: "Tryber Bebeto aqui!"
-  - Um array com escopo global, que é o escopo do arquivo JS , nesse caso, contendo cinco strings com suas principais skills .
-
+- Um array com escopo global, que é o escopo do arquivo JS , nesse caso, contendo cinco strings com suas principais skills .
 - Função 2 : Escreva uma função que vai receber a string retornada da Função 1 como parâmetro. Essa função deve concatenar as skills do array global à string que foi passada para a Função 2 via parâmetro. Você deve ordenar os skills em ordem alfabética. Sua função deve retornar essa nova string .
   - Exemplo: "Tryber x aqui! Minhas cinco principais habilidades são:
     JavaScript;
     HTML; ... #goTrybe". */
+
+function changeString(string) {
+  const str = 'Dev x aqui!';
+  let newStr = '';
+  for (const i of str) {
+    newStr += ((i === 'x')? string : i);
+  }
+  return newStr
+}
+
+// console.log(changeString('Braien'));
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'Lógica de Programação', 'Autogestão'];
+
+function skillsDev(string) {
+  const orderedSkills = skills.sort();
+  let concat = '';
+  let bottomStr = () => {
+    for (const i of orderedSkills) {
+      concat += `
+  ${i}`;
+    }
+    return concat;
+  };
+  return `${string} Minhas cinco principais habilidades são:${bottomStr()}`;
+}
+
+console.log(skillsDev(changeString('Braien')));
