@@ -14,3 +14,11 @@ function sum(a, b) {
   return a + b;
 }
 
+assert.strictEqual(9,sum(4, 5));
+assert.strictEqual(0, sum(0, 0));
+assert.throws(() => {
+  sum(4, "5");
+});
+assert.throws(() => {
+  sum(4,"5");
+}, /^Error: parameters must be numbers$/);
