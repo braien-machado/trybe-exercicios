@@ -32,9 +32,13 @@ function randomDamage(min, max) {
 
 // 1 - Crie uma função que retorna o dano do dragão.
 // O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo strength (dano máximo).
+
 const damageDragon = randomDamage(15, dragon.strength);
+
 // 2 - Crie uma função que retorna o dano causado pelo warrior .
 // O dano será um número aleatório entre o valor do atributo strength (dano mínimo) e o valor de strength * weaponDmg (dano máximo).
+
+const damageWarrior = randomDamage(warrior.strength, (warrior.strength * warrior.weaponDmg));
 
 // 3 - Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
 // O dano será um número aleatório entre o valor do atributo intelligence (dano mínimo) e o valor de intelligence * 2 (dano máximo).
