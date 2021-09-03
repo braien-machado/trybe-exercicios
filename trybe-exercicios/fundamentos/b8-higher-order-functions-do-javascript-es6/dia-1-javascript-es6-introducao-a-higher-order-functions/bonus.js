@@ -56,14 +56,26 @@ damageWarrior();
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
 const damageMage = () => {
+  if (mage.mana < 15) {
+    console.log('Mage não possui mana suficiente!');
+    return {
+      damage: 'Não possui mana suficiente',
+      manaSpent: 0,
+    }
+  }
   const intelligence = mage.intelligence;
   const minDamage = intelligence;
   const maxDamage = intelligence * 2;
-  const manaConsumed = 15;
+  manaConsumed = 15;
+  mage.mana -= manaConsumed;
   const damage = randomWithinRange(minDamage, maxDamage);
-  console.log(`Mage causa ${damage} de dano`);
-  return damage;
+  console.log(`Mage gasta ${manaConsumed} de mana e causa ${damage} de dano. Mana atual: ${mage.mana}`);
+  return {
+    damage,
+    manaSpent: manaConsumed,
+  }
 }
+damageMage();
 damageMage();
 
 /** Parte II
