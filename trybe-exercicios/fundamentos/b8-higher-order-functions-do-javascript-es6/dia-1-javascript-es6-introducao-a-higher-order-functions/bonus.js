@@ -31,18 +31,18 @@ function randomWithinRange(min, max) {
 // 1 - Crie uma função que retorna o dano do dragão.
 // O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo strength (dano máximo).
 
-const damageDragon = () => {
+const dragonAtk = (dragon) => {
   const minDamage = 15;
   const maxDamage = dragon.strength;
   const damage = randomWithinRange(minDamage, maxDamage);
   console.log(`Dragon causa ${damage} de dano`);
   return damage;
 }
-damageDragon();
+
 // 2 - Crie uma função que retorna o dano causado pelo warrior .
 // O dano será um número aleatório entre o valor do atributo strength (dano mínimo) e o valor de strength * weaponDmg (dano máximo).
 
-const damageWarrior = () => {
+const warriorAtk = (warrior) => {
   const strength = warrior.strength;
   const minDamage = strength;
   const maxDamage = strength * warrior.weaponDmg;
@@ -50,12 +50,12 @@ const damageWarrior = () => {
   console.log(`Warrior causa ${damage} de dano`);
   return damage;
 }
-damageWarrior();
+
 // 3 - Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
 // O dano será um número aleatório entre o valor do atributo intelligence (dano mínimo) e o valor de intelligence * 2 (dano máximo).
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
-const damageMage = () => {
+const mageAtk = (mage) => {
   if (mage.mana < 15) {
     console.log('Mage não possui mana suficiente!');
     return {
@@ -66,25 +66,43 @@ const damageMage = () => {
   const intelligence = mage.intelligence;
   const minDamage = intelligence;
   const maxDamage = intelligence * 2;
-  manaConsumed = 15;
-  mage.mana -= manaConsumed;
+  const manaConsumed = 15;
   const damage = randomWithinRange(minDamage, maxDamage);
-  console.log(`Mage gasta ${manaConsumed} de mana e causa ${damage} de dano. Mana atual: ${mage.mana}`);
+  console.log(`Mage gasta ${manaConsumed} de mana e causa ${damage} de dano.`);
   return {
     damage,
     manaSpent: manaConsumed,
   }
 }
-damageMage();
-damageMage();
 
 /** Parte II
 Agora que você já possui a implementação das funções relativas aos três exercícios anteriores, passe-as como parâmetro para outras funções que irão compor um objeto gameActions . O objeto será composto por ações do jogo e cada ação é por denifição uma HOF , pois neste caso, são funções que recebem como parâmetro outra função.
-Copie o código abaixo e inicie sua implementação:
+Copie o código abaixo e inicie sua implementação: */
 
 const gameActions = {
-  // Crie as HOFs neste objeto.
-}; */
+  warriorTurn: (warriorAtk) => {
+    const warriorDamage = warriorAtk(warrior);
+    warrior.damage = warriorDamage;
+    dragon.healthPoints -= warriorDamage;
+  },
+  mageTurn: (mageAtk) => {
+    const result = mageAtk(mage);
+    const mageDamage = result.damage;
+    const {manaSpent} = result;
+    mage.damage = mageDamage;
+    mage.mana -= manaSpent;
+    dragon.healthPoints -= mageDamage;
+  },
+  dragonTurn: (dragonAtk) => {
+    const dragonDamage = dragonAtk(dragon);
+    dragon.damage = dragonDamage;
+    warrior.healthPoints -= dragonDamage;
+    mage.healthPoints -= dragonDamage;
+  }
+};
+gameActions.warriorTurn(warriorAtk);
+gameActions.mageTurn(mageAtk);
+gameActions.dragonTurn(dragonAtk);
 
 // 1 - Crie a primeira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem warrior . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem warrior e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor da chave damage do warrior .
 
