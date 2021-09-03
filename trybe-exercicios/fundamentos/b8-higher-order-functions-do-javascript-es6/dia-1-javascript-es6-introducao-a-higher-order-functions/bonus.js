@@ -24,27 +24,47 @@ const dragon = {
 
 const battleMembers = { mage, warrior, dragon };
 
-function randomDamage(min, max) {
-  const damage = Math.round(Math.random() * (max-min) + min);
-  console.log(damage);
-  return damage;
+function randomWithinRange(min, max) {
+  return Math.round(Math.random() * (max-min) + min);
 }
 
 // 1 - Crie uma função que retorna o dano do dragão.
 // O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo strength (dano máximo).
 
-const damageDragon = randomDamage(15, dragon.strength);
-
+const damageDragon = () => {
+  const minDamage = 15;
+  const maxDamage = dragon.strength;
+  const damage = randomWithinRange(minDamage, maxDamage);
+  console.log(`Dragon causa ${damage} de dano`);
+  return damage;
+}
+damageDragon();
 // 2 - Crie uma função que retorna o dano causado pelo warrior .
 // O dano será um número aleatório entre o valor do atributo strength (dano mínimo) e o valor de strength * weaponDmg (dano máximo).
 
-const damageWarrior = randomDamage(warrior.strength, (warrior.strength * warrior.weaponDmg));
-
+const damageWarrior = () => {
+  const strength = warrior.strength;
+  const minDamage = strength;
+  const maxDamage = strength * warrior.weaponDmg;
+  const damage = randomWithinRange(minDamage, maxDamage);
+  console.log(`Warrior causa ${damage} de dano`);
+  return damage;
+}
+damageWarrior();
 // 3 - Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
 // O dano será um número aleatório entre o valor do atributo intelligence (dano mínimo) e o valor de intelligence * 2 (dano máximo).
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
-
+const damageMage = () => {
+  const intelligence = mage.intelligence;
+  const minDamage = intelligence;
+  const maxDamage = intelligence * 2;
+  const manaConsumed = 15;
+  const damage = randomWithinRange(minDamage, maxDamage);
+  console.log(`Mage causa ${damage} de dano`);
+  return damage;
+}
+damageMage();
 
 /** Parte II
 Agora que você já possui a implementação das funções relativas aos três exercícios anteriores, passe-as como parâmetro para outras funções que irão compor um objeto gameActions . O objeto será composto por ações do jogo e cada ação é por denifição uma HOF , pois neste caso, são funções que recebem como parâmetro outra função.
