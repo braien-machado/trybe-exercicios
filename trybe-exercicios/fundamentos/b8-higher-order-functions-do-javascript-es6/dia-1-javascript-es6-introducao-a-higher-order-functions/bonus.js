@@ -35,7 +35,6 @@ const dragonAtk = (dragon) => {
   const minDamage = 15;
   const maxDamage = dragon.strength;
   const damage = randomWithinRange(minDamage, maxDamage);
-  console.log(`Dragon causa ${damage} de dano`);
   return damage;
 }
 
@@ -47,7 +46,6 @@ const warriorAtk = (warrior) => {
   const minDamage = strength;
   const maxDamage = strength * warrior.weaponDmg;
   const damage = randomWithinRange(minDamage, maxDamage);
-  console.log(`Warrior causa ${damage} de dano`);
   return damage;
 }
 
@@ -68,7 +66,6 @@ const mageAtk = (mage) => {
   const maxDamage = intelligence * 2;
   const manaConsumed = 15;
   const damage = randomWithinRange(minDamage, maxDamage);
-  console.log(`Mage gasta ${manaConsumed} de mana e causa ${damage} de dano.`);
   return {
     damage,
     manaSpent: manaConsumed,
@@ -98,11 +95,13 @@ const gameActions = {
     dragon.damage = dragonDamage;
     warrior.healthPoints -= dragonDamage;
     mage.healthPoints -= dragonDamage;
-  }
+  },
+  turnResult: () => battleMembers,
 };
 gameActions.warriorTurn(warriorAtk);
 gameActions.mageTurn(mageAtk);
 gameActions.dragonTurn(dragonAtk);
+console.log(gameActions.turnResult());
 
 // 1 - Crie a primeira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem warrior . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem warrior e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor da chave damage do warrior .
 
