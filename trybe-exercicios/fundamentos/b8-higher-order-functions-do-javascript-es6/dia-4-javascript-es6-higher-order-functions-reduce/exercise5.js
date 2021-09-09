@@ -9,6 +9,12 @@ const names = [
 
 function containsA() {
   // escreva seu código aqui
+  return names.reduce((counter, name) => {
+    const nameLowerCase = name.toLowerCase();
+    const letters = nameLowerCase.split('');
+    const countName = letters.reduce((count, letter) => (letter === 'a')? count + 1 : count, 0)
+    return counter + countName;
+  }, 0);
 }
 
 assert.deepStrictEqual(containsA(), 20);
