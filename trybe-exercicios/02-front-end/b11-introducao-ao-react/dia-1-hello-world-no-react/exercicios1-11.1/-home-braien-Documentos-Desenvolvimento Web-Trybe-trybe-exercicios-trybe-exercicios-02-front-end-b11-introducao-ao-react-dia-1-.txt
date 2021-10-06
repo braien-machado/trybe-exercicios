@@ -1,1 +1,0 @@
-/home/braien/Documentos/Desenvolvimento Web/Trybe/trybe-exercicios/trybe-exercicios/02-front-end/b11-introducao-ao-react/dia-1-hello-world-no-react/exercicios1-11.1/src/App.js
