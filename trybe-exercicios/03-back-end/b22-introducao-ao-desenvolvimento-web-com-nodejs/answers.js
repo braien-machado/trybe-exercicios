@@ -87,3 +87,24 @@
 // };
 
 // calculateIMC();
+
+// 6. Vamos criar mais um script. Dessa vez, para calcular a velocidade média de um carro numa corrida
+// A fórmula para calcular velocidade média é distância / tempo .
+// Armazene o script no arquivo velocidade.js.
+// Agora, permita que o script seja executado através do comando npm run velocidade . Para isso, crie a chave velocidade dentro do objeto scripts no package.json .
+// Utilize o readline-sync para solicitar os dados à pessoa.
+// Considere a distância em metros e o tempo em segundos. Repare que, agora, estamos trabalhando com números inteiros.
+
+// "velocidade": "node velocidade"  <---- dentro do objeto na chave "scripts" em package.json
+
+// const { questionInt } = require('readline-sync');
+
+// function calculateSpeed() {
+//   const distance = questionInt('Qual a distância(em metros)? ');
+//   const time = questionInt('Qual o tempo(em segundos)? ')
+//   const speed = distance / time;
+//   const message = `A velocidade é: ${speed}m/s`;
+//   console.log(message);
+// }
+
+// calculateSpeed();
