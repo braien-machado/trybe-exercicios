@@ -40,3 +40,50 @@
 // };
 
 // calculateIMC();
+
+// 5. Vamos sofisticar um pouco mais nosso script. Além de imprimir o IMC na tela, imprima também em qual categoria da tabela abaixo aquele IMC se enquadra:
+// Considere a seguinte tabela para classificar a situação do IMC:
+
+// | IMC                                       | Situação                  |
+// | ----------------------------------------- | ------------------------- |
+// | Abaixo de 18,5                            | Abaixo do peso (magreza)  |
+// | Entre 18,5 e 24,9                         | Peso normal               |
+// | Entre 25,0 e 29,9                         | Acima do peso (sobrepeso) |
+// | Entre 30,0 e 34,9                         | Obesidade grau I          |
+// | Entre 35,0 e 39,9                         | Obesidade grau II         |
+// | 40,0 e acima                              | Obesidade graus III e IV  |
+
+// const { questionFloat } = require('readline-sync');
+
+// const getImcClassification = (imc) => {
+//   if (imc < 18.5) {
+//     return 'Abaixo do peso (magreza)';
+//   }
+//   if (imc >= 18.5 && imc <= 24.9) {
+//     return 'Peso normal';
+//   }
+//   if (imc >= 25 && imc <= 29.9) {
+//     return 'Acima do peso (sobrepeso)';
+//   }
+//   if (imc >= 30 && imc <= 34.9) {
+//     return 'Obesidade grau I';
+//   }
+//   if (imc >= 35 && imc <= 39.9) {
+//     return 'Obesidade grau II';
+//   }
+//   if (imc >= 40) {
+//     return 'Obesidade graus III e IV';
+//   }
+// }
+
+// const calculateIMC = () => {
+//   const weight = questionFloat('Qual o seu peso(em quilos)? ');
+//   const height = questionFloat('Qual a sua altura(em metros)? ');
+//   const imc = weight / (height ** 2);
+//   const classification = getImcClassification(imc); 
+//   const message = `O IMC é: ${imc.toFixed(1)}\nA classificação é: ${classification}`;
+  
+//   console.log(message);
+// };
+
+// calculateIMC();
