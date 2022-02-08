@@ -108,3 +108,44 @@
 // }
 
 // calculateSpeed();
+
+// 7. Crie um "jogo de adivinhação" em que a pessoa ganha se acertar qual foi o número aleatório gerado
+// O script deve ser executado através do comando npm run sorteio .
+// Utilize o readline-sync para realizar input de dados.
+// Armazene o script em sorteio.js .
+// O número gerado deve ser um inteiro entre 0 e 10.
+// Caso a pessoa acerte o número, exiba na tela "Parabéns, número correto!".
+// Caso a pessoa erre o número, exiba na tela "Opa, não foi dessa vez. O número era [número sorteado]".
+// Ao final, pergunte se a pessoa deseja jogar novamente. Se sim, volte ao começo do script.
+
+// "sorteio": "node sorteio"  <---- dentro do objeto na chave "scripts" em package.json
+
+// const readline = require('readline-sync');
+
+// const generateRandomNumber = () => {
+//   const randomNumber = Math.floor(Math.random() * 11);
+//   return randomNumber;
+// }
+
+// const getInputNumber = () => {
+//   const inputNumber = readline.questionInt('De 0 a 10, qual número será gerado? ');
+//   return inputNumber;
+// }
+
+// const checkRandomNumber = () => {
+//   const randomNumber = generateRandomNumber();
+//   const inputNumber = getInputNumber();
+
+//   if (randomNumber === inputNumber) {
+//     console.log(`Parabéns, ${randomNumber} é o número correto!`);
+//   } else {
+//     console.log(`Opa, não foi dessa vez. O número era ${randomNumber}`);
+//   }
+
+//   const tryAgain = readline.question('Deseja jogar novamente? (s/qualquer tecla) ')
+//   if (tryAgain === 's') {
+//     checkRandomNumber();
+//   }
+// }
+
+// checkRandomNumber();
