@@ -21,6 +21,6 @@ const factorial = () => {
     factorialValue *= i;
   }
   console.log(factorialValue);
-}
+};
 
 module.exports = factorial;
