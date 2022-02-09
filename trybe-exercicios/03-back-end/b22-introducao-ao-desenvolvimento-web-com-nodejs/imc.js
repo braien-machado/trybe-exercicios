@@ -31,4 +31,4 @@ const calculateIMC = () => {
   console.log(message);
 };
 
-calculateIMC();
+module.exports = calculateIMC;

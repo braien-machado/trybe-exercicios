@@ -149,3 +149,34 @@
 // }
 
 // checkRandomNumber();
+
+// 8. Crie um arquivo index.js que pergunta qual script deve ser executado
+// O script deve ser acionado através do comando npm start .
+// Utilize o readline-sync para realizar o input de dados
+// Quando executado, o script deve exibir uma lista numerada dos scripts disponíveis.
+// Ao digitar o número de um script e pressionar enter , o script deve ser executado.
+// Você pode utilizar o require para executar o script em questão.
+
+// "start": "node index"  <---- dentro do objeto na chave "scripts" em package.json
+
+// const readline = require('readline-sync');
+// const sorteioScript = require('./sorteio');
+// const velocidadeScript = require('./velocidade');
+// const imcScript = require('./imc');
+
+// const scripts = {
+//   1: sorteioScript,
+//   2: velocidadeScript,
+//   3: imcScript
+// }
+
+// const main = () => {
+//   const inputScript = readline.questionInt('Digite o número correspondente ao script que deve ser executado.\n1) sorteio\n2) velocidade\n3) imc\n');
+
+//   if (scripts[inputScript]) {
+//     const script = scripts[inputScript];
+//     script();
+//   }
+// }
+
+// main();

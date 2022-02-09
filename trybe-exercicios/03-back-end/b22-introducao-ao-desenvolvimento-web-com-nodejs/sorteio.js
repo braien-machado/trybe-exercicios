@@ -26,4 +26,4 @@ const checkRandomNumber = () => {
   }
 }
 
-checkRandomNumber();
+module.exports = checkRandomNumber;

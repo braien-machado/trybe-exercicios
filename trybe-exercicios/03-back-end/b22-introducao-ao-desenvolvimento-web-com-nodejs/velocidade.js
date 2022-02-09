@@ -8,4 +8,4 @@ function calculateSpeed() {
   console.log(message);
 }
 
-calculateSpeed();
+module.exports = calculateSpeed;

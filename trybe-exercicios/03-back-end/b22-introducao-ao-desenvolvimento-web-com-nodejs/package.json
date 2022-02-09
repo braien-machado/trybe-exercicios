@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "imc": "node imc",
     "velocidade": "node velocidade",
-    "sorteio": "node sorteio"
+    "sorteio": "node sorteio",
+    "start": "node index"
   },
   "author": "Braien Machado de Paula",
   "license": "ISC",
