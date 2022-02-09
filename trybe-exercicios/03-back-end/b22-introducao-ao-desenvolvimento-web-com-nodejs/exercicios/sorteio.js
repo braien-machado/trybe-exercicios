@@ -3,12 +3,12 @@ const readline = require('readline-sync');
 const generateRandomNumber = () => {
   const randomNumber = Math.floor(Math.random() * 11);
   return randomNumber;
-}
+};
 
 const getInputNumber = () => {
   const inputNumber = readline.questionInt('De 0 a 10, qual número será gerado? ');
   return inputNumber;
-}
+};
 
 const checkRandomNumber = () => {
   const randomNumber = generateRandomNumber();
@@ -24,6 +24,6 @@ const checkRandomNumber = () => {
   if (tryAgain === 's') {
     checkRandomNumber();
   }
-}
+};
 
 module.exports = checkRandomNumber;

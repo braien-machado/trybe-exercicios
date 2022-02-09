@@ -6,6 +6,6 @@ function calculateSpeed() {
   const speed = distance / time;
   const message = `A velocidade é: ${speed}m/s`;
   console.log(message);
-}
+};
 
 module.exports = calculateSpeed;

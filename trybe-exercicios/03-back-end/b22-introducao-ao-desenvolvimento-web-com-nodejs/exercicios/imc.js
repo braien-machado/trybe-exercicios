@@ -19,7 +19,7 @@ const getImcClassification = (imc) => {
   if (imc >= 40) {
     return 'Obesidade graus III e IV';
   }
-}
+};
 
 const calculateIMC = () => {
   const weight = questionFloat('Qual o seu peso(em quilos)? ');
