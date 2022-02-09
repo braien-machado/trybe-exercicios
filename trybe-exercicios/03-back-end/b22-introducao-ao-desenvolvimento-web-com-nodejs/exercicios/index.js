@@ -1,16 +1,27 @@
 const readline = require('readline-sync');
-const sorteioScript = require('./sorteio');
-const velocidadeScript = require('./velocidade');
-const imcScript = require('./imc');
+const sorteio = require('./sorteio');
+const velocidade = require('./velocidade');
+const imc = require('./imc');
+const fatorial = require('./fatorial');
 
 const scripts = {
-  1: sorteioScript,
-  2: velocidadeScript,
-  3: imcScript
+  1: sorteio,
+  2: velocidade,
+  3: imc,
+  4: fatorial,
+}
+
+const arrayOfScriptsNames = [
+  'sorteio', 'velocidade', 'imc', 'fatorial',
+];
+
+const listOptions = () => {
+  const list = arrayOfScriptsNames.reduce((acc, curr, index) => `${acc}${index + 1})${curr};\n`, '');
+  return list;
 }
 
 const main = () => {
-  const inputScript = readline.questionInt('Digite o número correspondente ao script que deve ser executado.\n1) sorteio\n2) velocidade\n3) imc\n');
+  const inputScript = readline.questionInt(`Digite o número correspondente ao script que deve ser executado.\n${listOptions()}\n`);
 
   if (scripts[inputScript]) {
     const script = scripts[inputScript];
