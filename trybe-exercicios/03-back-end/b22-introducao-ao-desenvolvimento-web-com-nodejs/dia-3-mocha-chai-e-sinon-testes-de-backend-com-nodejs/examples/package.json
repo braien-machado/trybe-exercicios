@@ -1,0 +1,20 @@
+{
+  "name": "dia-3-mocha-chai-e-sinon-testes-de-backend-com-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "chai": "^4.3.6"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "author": "",
+  "license": "ISC"
+}
