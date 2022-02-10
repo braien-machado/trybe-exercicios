@@ -13,12 +13,14 @@ describe('test', () => {
   });
 
   describe('if the file exists', () => {
+    const result = writeFile('../exercise2.txt', 'it works!');
+
     it('returns a string', () => {
-      expect(writeFile('./exercise2.txt', 'it works!')).to.be.a('string');
+      expect(result).to.be.a('string');
     })
     
     it('returns \'ok\'', () => {
-      expect(writeFile('./exercise2.txt', 'it works!')).to.be.equal('ok');
+      expect(result).to.be.equal('ok');
     })
   })
 });
