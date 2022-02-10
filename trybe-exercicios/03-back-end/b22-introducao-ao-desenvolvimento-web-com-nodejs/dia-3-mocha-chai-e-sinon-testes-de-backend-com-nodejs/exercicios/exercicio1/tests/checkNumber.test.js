@@ -6,7 +6,7 @@ describe('test', () => {
     expect(checkNumber).to.be.a('function');
   });
 
-  describe('if the parameter is not a number,', () => {
+  describe('if the parameter is not a number', () => {
     it('throw error', () => {
       const err = 'The parameter must be a number!';
 
@@ -14,9 +14,23 @@ describe('test', () => {
     });
   })
 
-  describe('if the parameter is a number,', () => {
-    it('it returns a string', () => {
-      expect(checkNumber(2)).to.be.a('string')
+  describe('if the parameter is', () => {
+    it('a number, it returns a string', () => {
+      expect(checkNumber(2)).to.be.a('string');
+      expect(checkNumber(0)).to.be.a('string');
+      expect(checkNumber(-2)).to.be.a('string');
+    });
+
+    it('a positive number, it returns \'positivo\'', () => {
+      expect(checkNumber(2)).to.be.equal('positivo');
+    });
+
+    it('0, it returns \'neutro\'', () => {
+      expect(checkNumber(0)).to.be.equal('neutro');
+    });
+
+    it('a negative number, it returns \'negativo\'', () => {
+      expect(checkNumber(-2)).to.be.equal('negativo');
     });
   });
 });
