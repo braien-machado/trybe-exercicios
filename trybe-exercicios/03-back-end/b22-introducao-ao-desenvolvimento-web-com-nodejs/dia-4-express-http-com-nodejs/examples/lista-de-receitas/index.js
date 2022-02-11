@@ -50,7 +50,19 @@ app.put('/drinks/:id', function (req, res) {
 
   drinks[drinkIndex] = { ...drinks[drinkIndex], name, price };
   res.status(204).end();
-})
+});
+
+app.delete('/drinks/:id', function (req, res) {
+  const { id } = req.params;
+
+  const drinkIndex = drinks.findIndex((r) => r.id === parseInt(id));
+
+  if (drinkIndex === -1) return res.status(404).json({ message: 'Drink not found' });
+
+  drinks.splice(drinkIndex, 1);
+
+  res.status(204).end();
+});
 
 app.get('/validateToken', function (req, res) {
   const token = req.headers.authorization;
