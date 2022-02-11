@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
 
 const recipes = [
   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
@@ -21,7 +23,7 @@ app.get('/drinks', function (req, res) {
     return a.name.localeCompare(b.name);
   });
   res.json(drinks);
-})
+});
 
 app.get('/drinks/search', function (req, res) {
   const { name } = req.query;
@@ -36,6 +38,19 @@ app.get('/drinks/:id', function (req, res) {
   if (!drink) return res.status(404).json({message: 'Drink not found!'});
 
   res.status(200).json(drink);
+});
+
+app.get('/validateToken', function (req, res) {
+  const token = req.headers.authorization;
+  if (token.length !== 16) return res.status(401).json({ message: 'Invalid token!' });
+
+  res.status(200).json({ message: 'Valid token!' });
+});
+
+app.post('/recipes', function (req, res) {
+  const { id, name, price } = req.body;
+  recipes.push({ id, name, price });
+  res.status(201).json({ message: 'Recipe created successfully!' });
 });
 
 app.get('/recipes', function (req, res) {
