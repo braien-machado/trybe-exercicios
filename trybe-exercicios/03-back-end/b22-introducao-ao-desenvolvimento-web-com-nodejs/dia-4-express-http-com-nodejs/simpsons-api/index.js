@@ -59,20 +59,20 @@ app.use(authMiddleware);
 // 6. Crie um endpoint GET /simpsons
 // O endpoint deve retornar um array com todos os simpsons.
 
-app.get('/simpsons', function (req, res) {
+app.get('/simpsons', function (req, res, next) {
   fs.readFile('./simpsons.json', 'utf8')
     .then((result) => {
       const array = JSON.parse(result);
       res.status(200).json(array);
     })
-    .catch((err) => res.status(500).json({message: err.message}));
+    .catch((err) => next(err));
 });
 
 // 7. Crie um endpoint GET /simpsons/:id
 // O endpoint deve retornar o personagem com o id informado na URL da requisição.
 // Caso não exista nenhum personagem com o id especificado, retorne o JSON { message: 'simpson not found' } com o status 404 - Not Found .
 
-app.get('/simpsons/:id', function (req, res) {
+app.get('/simpsons/:id', function (req, res, next) {
   const { id } = req.params;
   fs.readFile('./simpsons.json', 'utf8')
     .then((result) => {
@@ -84,7 +84,7 @@ app.get('/simpsons/:id', function (req, res) {
 
       res.status(200).json(character);
     })
-    .catch((err) => res.status(500).json({message: err.message}));
+    .catch((err) => next(err));
 });
 
 // 8. Crie um endpoint POST /simpsons .
@@ -93,22 +93,26 @@ app.get('/simpsons/:id', function (req, res) {
 // Caso já exista uma personagem com o id informado, devolva o JSON { message: 'id already exists' } com o status 409 - Conflict .
 // Caso a personagem ainda não exista, adicione-a ao arquivo simpsons.json e devolva um body vazio com o status 204 - No Content . Para encerrar a request sem enviar nenhum dado, você pode utilizar res.status(204).end(); .
 
-app.post('/simpsons', async function (req,res) {
-  const { id, name } = req.body;
-  const contentFile = await fs.readFile('./simpsons.json', 'utf8');
-
-  const simpsons = JSON.parse(contentFile);
+app.post('/simpsons', async function (req,res, next) {
+  try {
+    const { id, name } = req.body;
+    const contentFile = await fs.readFile('./simpsons.json', 'utf8');
   
-  const idAlreadyUsed = simpsons.some((char) => char.id === id);
-
-  if (idAlreadyUsed) return res.status(409).json({message: 'id already exists'});
-  simpsons.push({ id, name });
-
-  fs.writeFile('./simpsons.json', JSON.stringify(simpsons))
-    .then(() => {
-        res.status(204).end();
-      }
-    );
+    const simpsons = JSON.parse(contentFile);
+    
+    const idAlreadyUsed = simpsons.some((char) => char.id === id);
+  
+    if (idAlreadyUsed) return res.status(409).json({message: 'id already exists'});
+    simpsons.push({ id, name });
+  
+    fs.writeFile('./simpsons.json', JSON.stringify(simpsons))
+      .then(() => {
+          res.status(204).end();
+        }
+      );
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Bonus 2. Crie uma rota POST /signup
@@ -116,14 +120,26 @@ app.post('/simpsons', async function (req,res) {
 // Caso algum dos campos não esteja preenchido, a response deve possuir status 401 - Unauthorized e o JSON { message: 'missing fields' } .
 // Caso todos os parâmetros estejam presentes, a rota deve gerar um token aleatório válido, e a resposta deve conter o status 200 - OK , e o JSON { token: '<token-aleatorio>' } .
 
-app.post('/signup', function(req, res) {
-  const { email, password, firstName, phone } = req.body;
+app.post('/signup', function(req, res, next) {
+  try {
+    const { email, password, firstName, phone } = req.body;
+  
+    if ([email, password, firstName, phone].includes(undefined)) return res.status(401).json({ message: 'missing fields' });
+  
+    const token = generateToken();
+  
+    res.status(200).json({ token });
+  } catch (error) {
+    next(error);
+  }
+});
 
-  if ([email, password, firstName, phone].includes(undefined)) return res.status(401).json({ message: 'missing fields' });
+app.use(function (err, _req, res, _next) {
+  return res.status(500).send({ message: 'Erro na lógica' });
+});
 
-  const token = generateToken();
-
-  res.status(200).json({ token });
+app.all('*', function (_req, res) {
+  res.status(404).send({ message: 'Page not found!' });
 });
 
 app.listen(3001, () => {
