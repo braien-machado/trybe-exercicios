@@ -55,7 +55,11 @@ app.use(bodyParser.json());
 // 6. Crie um endpoint GET /simpsons
 // O endpoint deve retornar um array com todos os simpsons.
 
-app.get('/simpsons', async function (_req, res) {
+app.get('/simpsons', function (req, res) {
+  const { authorization } = req.headers;
+
+  if(authorization.length !== 16 || authorization === 'Bearer undefined') return res.status(401).json({ message: 'Token inválido!' });
+
   fs.readFile('./simpsons.json', 'utf8')
     .then((result) => {
       const array = JSON.parse(result);
