@@ -47,19 +47,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
+const authMiddleware = require('./authMiddleware');
 
 const app = express();
 
 app.use(bodyParser.json());
 
+app.use(authMiddleware);
+
 // 6. Crie um endpoint GET /simpsons
 // O endpoint deve retornar um array com todos os simpsons.
 
 app.get('/simpsons', function (req, res) {
-  const { authorization } = req.headers;
-
-  if(authorization.length !== 16 || authorization === 'Bearer undefined') return res.status(401).json({ message: 'Token inválido!' });
-
   fs.readFile('./simpsons.json', 'utf8')
     .then((result) => {
       const array = JSON.parse(result);
