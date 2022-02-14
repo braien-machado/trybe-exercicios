@@ -50,6 +50,8 @@ const fs = require('fs').promises;
 
 const app = express();
 
+app.use(bodyParser.json());
+
 // 6. Crie um endpoint GET /simpsons
 // O endpoint deve retornar um array com todos os simpsons.
 
@@ -79,6 +81,30 @@ app.get('/simpsons/:id', function (req, res) {
       res.status(200).json(character);
     })
     .catch((err) => res.status(500).json({message: err.message}));
+});
+
+// 8. Crie um endpoint POST /simpsons .
+// Este endpoint deve cadastrar novos personagens.
+// O corpo da requisição deve receber o seguinte JSON: { id: <id-da-personagem>, name: '<nome-da-personagem>' } .
+// Caso já exista uma personagem com o id informado, devolva o JSON { message: 'id already exists' } com o status 409 - Conflict .
+// Caso a personagem ainda não exista, adicione-a ao arquivo simpsons.json e devolva um body vazio com o status 204 - No Content . Para encerrar a request sem enviar nenhum dado, você pode utilizar res.status(204).end(); .
+
+app.post('/simpsons', async function (req,res) {
+  const { id, name } = req.body;
+  const contentFile = await fs.readFile('./simpsons.json', 'utf8');
+
+  const simpsons = JSON.parse(contentFile);
+  
+  const idAlreadyUsed = simpsons.some((char) => char.id === id);
+
+  if (idAlreadyUsed) return res.status(409).json({message: 'id already exists'});
+  simpsons.push({ id, name });
+
+  fs.writeFile('./simpsons.json', JSON.stringify(simpsons))
+    .then(() => {
+        res.status(204).end();
+      }
+    );
 });
 
 app.listen(3001, () => {
