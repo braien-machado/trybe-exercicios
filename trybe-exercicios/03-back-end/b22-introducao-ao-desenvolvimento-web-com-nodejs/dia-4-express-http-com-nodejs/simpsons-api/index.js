@@ -48,6 +48,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 const authMiddleware = require('./authMiddleware');
+const generateToken = require('./generateToken');
 
 const app = express();
 
@@ -108,6 +109,21 @@ app.post('/simpsons', async function (req,res) {
         res.status(204).end();
       }
     );
+});
+
+// Bonus 2. Crie uma rota POST /signup
+// A rota deve receber, no body da requisição, os campos email , password , firstName e phone .
+// Caso algum dos campos não esteja preenchido, a response deve possuir status 401 - Unauthorized e o JSON { message: 'missing fields' } .
+// Caso todos os parâmetros estejam presentes, a rota deve gerar um token aleatório válido, e a resposta deve conter o status 200 - OK , e o JSON { token: '<token-aleatorio>' } .
+
+app.post('/signup', function(req, res) {
+  const { email, password, firstName, phone } = req.body;
+
+  if ([email, password, firstName, phone].includes(undefined)) return res.status(401).json({ message: 'missing fields' });
+
+  const token = generateToken();
+
+  res.status(200).json({ token });
 });
 
 app.listen(3001, () => {
