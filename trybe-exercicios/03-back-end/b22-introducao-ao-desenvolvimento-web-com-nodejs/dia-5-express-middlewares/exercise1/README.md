@@ -1,4 +1,4 @@
-###Atividade 1
+### Atividade 1
 
 1. Crie uma rota POST /user/register que receba uma requisição que envie username , email e password no body da requisição, onde:
     1. username deve ter mais de 3 caracteres;

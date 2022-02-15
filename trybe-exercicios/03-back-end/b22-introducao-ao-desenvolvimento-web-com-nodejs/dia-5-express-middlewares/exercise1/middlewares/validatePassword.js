@@ -4,7 +4,7 @@ module.exports = (req, _res, next) => {
   const passwordString = password.toString();
   
   if (passwordString.length <= 3 || passwordString.length > 8 || isPasswordNotNumber) {
-    const newError = new Error('invalid data');
+    const newError = new Error();
     newError.status = 400;
     return next(newError);
   }

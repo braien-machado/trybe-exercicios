@@ -3,7 +3,7 @@ module.exports = (req, _res, next) => {
   const regex = /\S+@\S+\.com$/;
   
   if (!regex.test(email)) {
-    const newError = new Error('invalid data');
+    const newError = new Error();
     newError.status = 400;
     return next(newError);
   }

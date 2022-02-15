@@ -1,21 +1,17 @@
 const express = require('express');
 const rescue = require('express-rescue');
-const fs = require('fs').promises;
 const validateUsername = require('../middlewares/validateUsername');
+const errorRegisterHandler = require('../middlewares/errorRegisterHandler');
 const validatePassword = require('../middlewares/validatePassword');
 const validateEmail = require('../middlewares/validateEmail');
+const registerUser = require('../middlewares/registerUser');
+
 const router = express.Router();
 
-router.post('/register', validateUsername, validatePassword, validateEmail, rescue(async function (req, res) {
-  const { username, password, email } = req.body;
-  const usersFile = JSON.parse(await fs.readFile('./users.json', 'utf8'));
-  console.log(usersFile);
-  newUser = { username, password, email };
+router.post('/register', validateUsername, validatePassword, validateEmail, errorRegisterHandler, rescue(registerUser));
 
-  usersFile.push(newUser);
-  await fs.writeFile('./users.json', JSON.stringify(usersFile));
-
-  res.status(201).json({ message: 'user created' });
-}));
+router.post('/login', validateEmail, validatePassword, function (req, res) {
+  res.status(200).json({ token: 'vdsvvsdvsd' });
+});
 
 module.exports = router;
