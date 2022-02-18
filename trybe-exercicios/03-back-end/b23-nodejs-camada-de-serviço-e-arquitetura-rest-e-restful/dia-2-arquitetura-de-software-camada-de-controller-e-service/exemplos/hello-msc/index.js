@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const Author = require('./controllers/Author');
 const errorMiddleware = require('./middlewares/error');
@@ -16,7 +17,7 @@ app.post('/authors', Author.createAuthor);
 
 app.use(errorMiddleware);
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Ouvindo a porta ${PORT}`);
