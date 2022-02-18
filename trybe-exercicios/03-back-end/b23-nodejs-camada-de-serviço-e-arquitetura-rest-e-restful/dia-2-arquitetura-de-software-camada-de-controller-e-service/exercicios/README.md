@@ -22,7 +22,7 @@
 
   
 
-{ "message": "pong!" }
+		{ "message": "pong!" }
 
   
 
@@ -44,7 +44,7 @@
 
  - [ ] 10. O CEP precisa conter 8 dígitos numéricos e pode ou não possui traço.
 
-- Dica Utilize o regex \d{5}-?\d{3} para validar o CEP.
+	- Dica Utilize o regex \d{5}-?\d{3} para validar o CEP.
 
   
 
@@ -52,7 +52,7 @@
 
   
 
-{ "error": { "code": "invalidData", "message": "CEP inválido" } }
+		{ "error": { "code": "invalidData", "message": "CEP inválido" } }
 
   
 
@@ -64,7 +64,7 @@
 
   
 
-{ "error": { "code": "notFound", "message": "CEP não encontrado" } }
+		{ "error": { "code": "notFound", "message": "CEP não encontrado" } }
 
   
 
@@ -72,31 +72,31 @@
 
   
 
-{
+		{
 
-  
 
-"cep": "01001-000",
 
-  
+		"cep": "01001-000",
 
-"logradouro": "Praça da Sé",
 
-  
 
-"bairro": "Sé",
+		"logradouro": "Praça da Sé",
 
-  
 
-"localidade": "São Paulo",
 
-  
+		"bairro": "Sé",
 
-"uf": "SP",
 
-  
 
-}
+		"localidade": "São Paulo",
+
+
+
+		"uf": "SP",
+
+
+
+		}
 
   
 
@@ -108,31 +108,31 @@
 
   
 
-{
+		{
 
-  
 
-"cep": "01001-000",
 
-  
+		"cep": "01001-000",
 
-"logradouro": "Praça da Sé",
 
-  
 
-"bairro": "Sé",
+		"logradouro": "Praça da Sé",
 
-  
 
-"localidade": "São Paulo",
 
-  
+		"bairro": "Sé",
 
-"uf": "SP",
 
-  
 
-}
+		"localidade": "São Paulo",
+
+
+
+		"uf": "SP",
+
+
+
+		}
 
   
 
@@ -144,7 +144,7 @@
 
   
 
-{ "error": { "code": "invalidData", "message": "<mensagem do Joi>" } }
+		{ "error": { "code": "invalidData", "message": "<mensagem do Joi>" } }
 
   
 
@@ -160,15 +160,15 @@
 
   
 
-{
+		{
 
-  
 
-"error": { "code": "alreadyExists", "message": "CEP já existente" }
 
-  
+		"error": { "code": "alreadyExists", "message": "CEP já existente" }
 
-}
+
+
+		}
 
   
 
@@ -176,31 +176,31 @@
 
   
 
-{
+		{
 
-  
 
-"cep": "01001-000",
 
-  
+		"cep": "01001-000",
 
-"logradouro": "Praça da Sé",
 
-  
 
-"bairro": "Sé",
+		"logradouro": "Praça da Sé",
 
-  
 
-"localidade": "São Paulo",
 
-  
+		"bairro": "Sé",
 
-"uf": "SP",
 
-  
 
-}
+		"localidade": "São Paulo",
+
+
+
+		"uf": "SP",
+
+
+
+		}
 
   ## Bônus
   - [ ]  1.  Utilize uma API externa para buscar CEPs que não existem no banco de dados
