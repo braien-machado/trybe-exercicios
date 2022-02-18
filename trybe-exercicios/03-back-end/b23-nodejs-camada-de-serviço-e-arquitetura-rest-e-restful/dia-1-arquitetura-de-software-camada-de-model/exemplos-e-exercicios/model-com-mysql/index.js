@@ -12,7 +12,7 @@ app.use('/authors', authorRoute);
 app.use('/books', bookRoute)
 
 app.use((err, req, res, next) => {
-  res.status(err.code).json(err.message);
+  res.status(err.code || 500).json({message: err.message});
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`));
