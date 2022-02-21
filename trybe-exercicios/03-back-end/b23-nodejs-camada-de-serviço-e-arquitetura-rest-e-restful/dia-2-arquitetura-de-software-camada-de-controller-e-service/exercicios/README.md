@@ -6,19 +6,19 @@
 
   
 
- - [ ] 2. A aplicação deve ser um pacote Node.js
+ - [x] 2. A aplicação deve ser um pacote Node.js
 
   
 
- - [ ] 3. Dê ao pacote o nome de cep-lookup
+ - [x] 3. Dê ao pacote o nome de cep-lookup
 
   
 
- - [ ] 4. Utilize o express para gerenciar os endpoints da sua aplicação
+ - [x] 4. Utilize o express para gerenciar os endpoints da sua aplicação
 
   
 
- - [ ] 5. A aplicação deve ter a rota GET /ping , que retorna o status 200 OK e o seguinte JSON:
+ - [x] 5. A aplicação deve ter a rota GET /ping , que retorna o status 200 OK e o seguinte JSON:
 
   
 
