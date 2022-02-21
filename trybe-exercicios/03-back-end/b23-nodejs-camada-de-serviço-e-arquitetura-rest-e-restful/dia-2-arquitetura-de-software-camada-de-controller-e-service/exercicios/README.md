@@ -2,7 +2,7 @@
 
   ## Exercícios
 
- - [ ] 1. Crie uma nova API utilizando o express
+ - [x] 1. Crie uma nova API utilizando o express
 
   
 
