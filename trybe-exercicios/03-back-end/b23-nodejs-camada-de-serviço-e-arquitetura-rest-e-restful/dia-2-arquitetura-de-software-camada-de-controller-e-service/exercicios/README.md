@@ -148,7 +148,7 @@
 
   
 
- - [ ] 19. O CEP deve ser composto por 9 dígitos com traço.
+ - [ ] 19. O CEP deve ser composto por 8 dígitos com traço.
 
   
 
