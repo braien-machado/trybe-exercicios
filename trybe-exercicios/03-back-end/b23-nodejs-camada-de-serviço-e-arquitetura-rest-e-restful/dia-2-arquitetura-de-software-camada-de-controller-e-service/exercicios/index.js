@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-const Ping = require('./controllers/Ping');
+const Ping = require('./controllers/pingController');
 const Cep = require('./controllers/cepController');
 const validateCep = require('./middlewares/validateCep');
 
