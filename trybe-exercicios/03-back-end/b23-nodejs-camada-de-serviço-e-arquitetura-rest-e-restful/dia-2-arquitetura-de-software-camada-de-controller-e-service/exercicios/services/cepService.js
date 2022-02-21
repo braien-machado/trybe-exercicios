@@ -15,8 +15,35 @@ const isCepValid = (cep) => {
   return {};
 };
 
+const formatCepInput = (cep) => {
+  const regex = /\d{5}\d{3}/;
+
+  if (regex.test(cep)) {
+    return cep;
+  }
+
+  return cep.replace('-', '');
+};
+
+const formatCepOutput = (cep) => {
+  const regex = /\d{5}-\d{3}/;
+
+  if (regex.test(cep)) {
+    return cep;
+  }
+
+  return cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+};
+
+const formatCepInfo = (info) => {
+  const formattedCep = formatCepOutput(info.cep);
+
+  return { ...info, cep: formattedCep };
+};
+
 const getCep = async (cep) => {
-  const [cepInfo] = await Cep.getCep(cep);
+  const formattedCep = formatCepInput(cep);
+  const [cepInfo] = await Cep.getCep(formattedCep);
 
   if (!cepInfo) {
     const error = {
@@ -27,7 +54,7 @@ const getCep = async (cep) => {
     return { error };
   }
 
-  return cepInfo;
+  return formatCepInfo(cepInfo);
 };
 
 module.exports = {
