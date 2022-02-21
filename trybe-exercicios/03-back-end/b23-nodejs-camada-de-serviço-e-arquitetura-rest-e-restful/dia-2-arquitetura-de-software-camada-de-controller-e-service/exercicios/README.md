@@ -34,21 +34,21 @@
 
   
 
- - [ ] 8. Crie o endpoint GET /cep/:cep
+ - [x] 8. Crie o endpoint GET /cep/:cep
 
   
 
- - [ ] 9. O endpoint deve receber, no parâmetro :cep , um número de CEP válido.
+ - [x] 9. O endpoint deve receber, no parâmetro :cep , um número de CEP válido.
 
   
 
- - [ ] 10. O CEP precisa conter 8 dígitos numéricos e pode ou não possui traço.
+ - [x] 10. O CEP precisa conter 8 dígitos numéricos e pode ou não possui traço.
 
 	- Dica Utilize o regex \d{5}-?\d{3} para validar o CEP.
 
   
 
- - [ ] 11. Caso o CEP seja inválido, retorne o status 400 Bad Request e o seguinte JSON:
+ - [x] 11. Caso o CEP seja inválido, retorne o status 400 Bad Request e o seguinte JSON:
 
   
 
