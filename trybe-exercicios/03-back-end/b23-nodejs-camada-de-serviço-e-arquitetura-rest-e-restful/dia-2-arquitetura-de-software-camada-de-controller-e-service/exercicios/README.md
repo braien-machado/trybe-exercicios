@@ -26,11 +26,11 @@
 
   
 
- - [ ] 6. A aplicação deve escutar na porta 3000
+ - [x] 6. A aplicação deve escutar na porta 3000
 
   
 
- - [ ] 7. Deve ser possível iniciar a aplicação através do comando npm start .
+ - [x] 7. Deve ser possível iniciar a aplicação através do comando npm start .
 
   
 
