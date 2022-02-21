@@ -2,23 +2,23 @@
 
   ## Exercícios
 
- - [ ] 1. Crie uma nova API utilizando o express
+ - [x] 1. Crie uma nova API utilizando o express
 
   
 
- - [ ] 2. A aplicação deve ser um pacote Node.js
+ - [x] 2. A aplicação deve ser um pacote Node.js
 
   
 
- - [ ] 3. Dê ao pacote o nome de cep-lookup
+ - [x] 3. Dê ao pacote o nome de cep-lookup
 
   
 
- - [ ] 4. Utilize o express para gerenciar os endpoints da sua aplicação
+ - [x] 4. Utilize o express para gerenciar os endpoints da sua aplicação
 
   
 
- - [ ] 5. A aplicação deve ter a rota GET /ping , que retorna o status 200 OK e o seguinte JSON:
+ - [x] 5. A aplicação deve ter a rota GET /ping , que retorna o status 200 OK e o seguinte JSON:
 
   
 
@@ -26,29 +26,29 @@
 
   
 
- - [ ] 6. A aplicação deve escutar na porta 3000
+ - [x] 6. A aplicação deve escutar na porta 3000
 
   
 
- - [ ] 7. Deve ser possível iniciar a aplicação através do comando npm start .
+ - [x] 7. Deve ser possível iniciar a aplicação através do comando npm start .
 
   
 
- - [ ] 8. Crie o endpoint GET /cep/:cep
+ - [x] 8. Crie o endpoint GET /cep/:cep
 
   
 
- - [ ] 9. O endpoint deve receber, no parâmetro :cep , um número de CEP válido.
+ - [x] 9. O endpoint deve receber, no parâmetro :cep , um número de CEP válido.
 
   
 
- - [ ] 10. O CEP precisa conter 8 dígitos numéricos e pode ou não possui traço.
+ - [x] 10. O CEP precisa conter 8 dígitos numéricos e pode ou não possui traço.
 
 	- Dica Utilize o regex \d{5}-?\d{3} para validar o CEP.
 
   
 
- - [ ] 11. Caso o CEP seja inválido, retorne o status 400 Bad Request e o seguinte JSON:
+ - [x] 11. Caso o CEP seja inválido, retorne o status 400 Bad Request e o seguinte JSON:
 
   
 
@@ -56,11 +56,11 @@
 
   
 
- - [ ] 12. Caso o CEP seja válido, realize uma busca no banco de dados.
+ - [x] 12. Caso o CEP seja válido, realize uma busca no banco de dados.
 
   
 
- - [ ] 13. Caso o CEP não exista no banco de dados, retorne o status 404 Not Found e o seguinte JSON:
+ - [x] 13. Caso o CEP não exista no banco de dados, retorne o status 404 Not Found e o seguinte JSON:
 
   
 
@@ -68,7 +68,7 @@
 
   
 
- - [ ] 14. Caso o CEP exista, retorne o status `200 OK` e os dados do CEP no seguinte formato:
+ - [x] 14. Caso o CEP exista, retorne o status `200 OK` e os dados do CEP no seguinte formato:
 
   
 
