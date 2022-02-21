@@ -56,11 +56,11 @@
 
   
 
- - [ ] 12. Caso o CEP seja válido, realize uma busca no banco de dados.
+ - [x] 12. Caso o CEP seja válido, realize uma busca no banco de dados.
 
   
 
- - [ ] 13. Caso o CEP não exista no banco de dados, retorne o status 404 Not Found e o seguinte JSON:
+ - [x] 13. Caso o CEP não exista no banco de dados, retorne o status 404 Not Found e o seguinte JSON:
 
   
 
@@ -68,7 +68,7 @@
 
   
 
- - [ ] 14. Caso o CEP exista, retorne o status `200 OK` e os dados do CEP no seguinte formato:
+ - [x] 14. Caso o CEP exista, retorne o status `200 OK` e os dados do CEP no seguinte formato:
 
   
 
