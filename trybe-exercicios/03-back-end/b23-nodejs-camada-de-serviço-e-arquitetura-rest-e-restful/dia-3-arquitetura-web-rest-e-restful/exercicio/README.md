@@ -1,7 +1,4 @@
-
 ## Refatorar *productController.js* na pasta *controllers*
-
-  
 
 1. Pense qual é o recurso que estamos trabalhando e altere os endpoints para que fiquem padronizados.
 
