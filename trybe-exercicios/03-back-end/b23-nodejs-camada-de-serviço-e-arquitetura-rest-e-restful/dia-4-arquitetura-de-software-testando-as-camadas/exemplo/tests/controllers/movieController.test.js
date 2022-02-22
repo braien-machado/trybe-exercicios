@@ -1,9 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const MoviesController = {
-  create: () => {}
-};
+const MoviesService = require('../../services/movieService');
+const MoviesController = require('../../controllers/movieController');
 
 describe('Ao chamar o controller de create', () => {
   describe('quando o payload informado não é válido', () => {
@@ -17,7 +16,14 @@ describe('Ao chamar o controller de create', () => {
         .returns(response);
       response.send = sinon.stub()
         .returns();
-    })
+
+      sinon.stub(MoviesService, 'create')
+        .resolves(false);
+    });
+
+    after(() => {
+      MoviesService.create.restore();
+    });
 
     it('é chamado o status com o código 400', async () => {
       await MoviesController.create(request, response);
@@ -48,7 +54,14 @@ describe('Ao chamar o controller de create', () => {
         .returns(response);
       response.send = sinon.stub()
         .returns();
-    })
+
+      sinon.stub(MoviesService, 'create')
+        .resolves(true);
+    });
+
+    after(() => {
+      MoviesService.create.restore();
+    });
 
     it('é chamado o status com o código 201', async () => {
       await MoviesController.create(request, response);
