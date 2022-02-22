@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get('/ping', Ping.pong);
 app.get('/cep/:cep', validateCep, Cep.getCep);
-app.post('/cep', validateFields, () => {});
+app.post('/cep', validateFields, Cep.createCep);
 
 const PORT = process.env.PORT || 3000;
 
