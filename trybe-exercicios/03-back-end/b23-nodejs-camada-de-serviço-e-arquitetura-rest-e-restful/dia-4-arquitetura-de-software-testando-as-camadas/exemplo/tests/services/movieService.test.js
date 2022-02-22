@@ -1,8 +1,5 @@
 const { expect } = require('chai');
-
-const MoviesService = {
-  create: () => {},
-};
+const MoviesService = require('../../services/movieService');
 
 /*
   Precisamos validar se estamos recebendo todos os campos
