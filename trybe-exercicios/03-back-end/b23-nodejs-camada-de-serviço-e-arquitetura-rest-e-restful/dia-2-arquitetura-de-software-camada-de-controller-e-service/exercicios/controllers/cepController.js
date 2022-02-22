@@ -12,6 +12,23 @@ const getCep = async (req, res) => {
   return res.status(200).json(cepInfo);
 };
 
+const createCep = async (req, res) => {
+  const {
+    cep, logradouro, bairro, uf, localidade,
+  } = req.body;
+
+  const createdCep = await Cep.createCep({
+    cep, logradouro, bairro, uf, localidade,
+  });
+
+  if (createdCep.error) {
+    return res.status(409).json(createdCep.error);
+  }
+
+  return res.status(201).json(createdCep);
+};
+
 module.exports = {
   getCep,
+  createCep,
 };

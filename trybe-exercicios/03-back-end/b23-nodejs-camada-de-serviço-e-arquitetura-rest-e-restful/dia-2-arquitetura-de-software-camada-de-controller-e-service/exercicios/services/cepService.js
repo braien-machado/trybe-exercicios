@@ -57,7 +57,24 @@ const getCep = async (cep) => {
   return formatCepInfo(cepInfo);
 };
 
+const createCep = async (cepInfo) => {
+  const cep = await getCep(cepInfo.cep);
+
+  if (!cep.error) {
+    const error = {
+      code: 'alreadyExists',
+      message: 'CEP já existente',
+    };
+
+    return { error };
+  }
+
+  await Cep.createCep({ ...cepInfo, cep: formatCepInput(cepInfo.cep) });
+  return cepInfo;
+};
+
 module.exports = {
   isCepValid,
   getCep,
+  createCep,
 };
