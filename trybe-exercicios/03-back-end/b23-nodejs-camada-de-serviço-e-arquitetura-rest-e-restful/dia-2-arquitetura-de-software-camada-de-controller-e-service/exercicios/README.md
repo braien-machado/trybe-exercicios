@@ -100,11 +100,11 @@
 
   
 
- - [ ] 15. Crie o endpoint POST /cep
+ - [x] 15. Crie o endpoint POST /cep
 
   
 
- - [ ] 16. O endpoint deve receber a seguinte estrutura no corpo da requisição:
+ - [x] 16. O endpoint deve receber a seguinte estrutura no corpo da requisição:
 
   
 
@@ -136,11 +136,11 @@
 
   
 
- - [ ] 17. Todos os campos são obrigatórios
+ - [x] 17. Todos os campos são obrigatórios
 
   
 
- - [ ] 18. Utilize o Joi para realizar a validação. Em caso de erro, retorne o status 400 Bad Request , com o seguinte JSON:
+ - [x] 18. Utilize o Joi para realizar a validação. Em caso de erro, retorne o status 400 Bad Request , com o seguinte JSON:
 
   
 
@@ -148,7 +148,7 @@
 
   
 
- - [ ] 19. O CEP deve ser composto por 8 dígitos com traço.
+ - [x] 19. O CEP deve ser composto por 8 dígitos com traço.
 
   
 
