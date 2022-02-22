@@ -1,4 +1,7 @@
+const sinon = require('sinon');
 const { expect } = require('chai');
+
+const MoviesModel = require('../../models/movieModel');
 const MoviesService = require('../../services/movieService');
 
 /*
@@ -7,6 +10,18 @@ const MoviesService = require('../../services/movieService');
   de negócio, validaremos na camada de serviços.
 */
 describe('Insere um novo filme no BD', () => {
+
+  before(async () => {
+    const ID_EXAMPLE = 1;
+
+    sinon.stub(MoviesModel, 'create')
+      .resolves({ id: ID_EXAMPLE });
+  });
+
+  after(() => {
+    MoviesModel.create.restore();
+  })
+
   describe('quando o payload informado não é válido', () => {
     const payloadMovie = {};
 
