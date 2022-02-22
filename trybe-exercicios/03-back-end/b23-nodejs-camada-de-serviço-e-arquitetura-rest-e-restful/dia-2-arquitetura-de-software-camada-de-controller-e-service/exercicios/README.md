@@ -156,7 +156,7 @@
 
   
 
- - [ ] 20. Se o CEP já existir, retorne o status 409 Conflict com o seguinte JSON:
+ - [x] 20. Se o CEP já existir, retorne o status 409 Conflict com o seguinte JSON:
 
   
 
@@ -172,7 +172,7 @@
 
   
 
- - [ ] 21. Se o CEP ainda não existir, armazene-o no banco de dados e retorne o status 201 Created com os dados do novo CEP no seguinte formato:
+ - [x] 21. Se o CEP ainda não existir, armazene-o no banco de dados e retorne o status 201 Created com os dados do novo CEP no seguinte formato:
 
   
 
