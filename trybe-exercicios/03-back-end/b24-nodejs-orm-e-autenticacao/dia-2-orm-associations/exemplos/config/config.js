@@ -7,11 +7,12 @@ module.exports = {
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "braien",
+    "password": "Mysql@2022",
+    "database": "orm_assoc_test_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false,
   },
   "production": {
     "username": "root",
