@@ -1,10 +1,24 @@
 const express = require('express');
+const { Op } = require('sequelize');
 const { Book } = require('../models');
 const router = express.Router();
 
 router.get('/', async (_req, res, next) => {
   try {
     const books = await Book.findAll();
+
+    return res.status(200).json(books);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/author', async (req, res, next) => {
+  try {
+    const { name } = req.query;
+    const books = await Book.findAll({ where: { author: {
+      [Op.substring]: name,
+    }}});
 
     return res.status(200).json(books);
   } catch (error) {
