@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
 
-app.post('/login', controllers.login);
+app.post('/login', middlewares.validateLogin, controllers.login);
 
 app.use(middlewares.error);
 
