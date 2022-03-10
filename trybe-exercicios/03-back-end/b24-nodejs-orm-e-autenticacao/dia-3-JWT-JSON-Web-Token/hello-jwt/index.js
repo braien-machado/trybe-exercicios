@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
 
+app.get('/users/me', middlewares.auth, controllers.usersMe);
+
 app.post('/login', middlewares.validateLogin, controllers.login);
 
 app.use(middlewares.error);
