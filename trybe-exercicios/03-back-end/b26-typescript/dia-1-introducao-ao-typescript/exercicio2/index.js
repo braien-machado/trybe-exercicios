@@ -24,25 +24,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const readLine = __importStar(require("readline-sync"));
-function makeError(unity) {
-    throw new Error(`A unidade "${unity}" não é uma unidade válida`);
+function chooseScript() {
+    const scripts = ['capacity', 'mass', 'lenght'];
+    const index = readLine.keyInSelect(scripts, 'Qual script você deseja executar? ');
+    if (index === -1) {
+        return console.log('Adeus!');
+    }
+    require(`./${scripts[index]}`);
 }
-function convert(units, value, unitBase, unitConvert) {
-    const unitToBeConverted = units.indexOf(unitBase);
-    const unitToConvertTo = units.indexOf(unitConvert);
-    if (!units.includes(unitBase))
-        makeError(unitBase);
-    if (!units.includes(unitConvert))
-        makeError(unitConvert);
-    const exponent = unitToConvertTo - unitToBeConverted;
-    return (value * Math.pow(10, exponent));
-}
-function exec(units) {
-    const valueToBeConverted = parseFloat(readLine.question('Qual o valor para conversão? '));
-    const unitToBeConverted = readLine.question('Qual a unidade a ser convertida? Utilize a abreviação. ');
-    const unitToGet = readLine.question('Para qual unidade será convertida? Utilize a abreviação. ');
-    const convertedValue = convert(units, valueToBeConverted, unitToBeConverted, unitToGet);
-    console.log(valueToBeConverted);
-    console.log(`${valueToBeConverted}${unitToBeConverted} é igual a ${convertedValue}${unitToGet}`);
-}
-exports.default = exec;
+chooseScript();
